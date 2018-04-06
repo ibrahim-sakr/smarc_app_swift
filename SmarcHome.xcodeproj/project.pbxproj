@@ -1,0 +1,792 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D9330F8220739CFB00B0E75F /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9330F8120739CFB00B0E75F /* AuthService.swift */; };
+		D9330F842074A60300B0E75F /* AuthConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9330F832074A60300B0E75F /* AuthConst.swift */; };
+		D9330F882076793100B0E75F /* UserEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9330F872076793100B0E75F /* UserEditVC.swift */; };
+		D9330F8A207679BA00B0E75F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9330F89207679BA00B0E75F /* User.swift */; };
+		D9330F8C20767A6000B0E75F /* UserProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9330F8B20767A6000B0E75F /* UserProtocol.swift */; };
+		D9330F8E20767BA600B0E75F /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9330F8D20767BA600B0E75F /* UserService.swift */; };
+		D9330F9020767C2C00B0E75F /* UserConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9330F8F20767C2C00B0E75F /* UserConst.swift */; };
+		D9AC3F782070B3750097F3D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AC3F772070B3750097F3D0 /* AppDelegate.swift */; };
+		D9AC3F7F2070B3760097F3D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9AC3F7E2070B3760097F3D0 /* Assets.xcassets */; };
+		D9AC3F822070B3760097F3D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9AC3F802070B3760097F3D0 /* LaunchScreen.storyboard */; };
+		D9AC3FA52070B9730097F3D0 /* LightIndexVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AC3FA32070B9730097F3D0 /* LightIndexVC.swift */; };
+		D9AC3FAE2070D96F0097F3D0 /* UserIndexVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AC3FAC2070D96F0097F3D0 /* UserIndexVC.swift */; };
+		D9AC3FB82070E0670097F3D0 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AC3FB62070E0670097F3D0 /* SWRevealViewController.m */; };
+		D9AC3FBA2070E9FB0097F3D0 /* Core.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9AC3FB92070E9FB0097F3D0 /* Core.storyboard */; };
+		D9AC3FBC2070EB1E0097F3D0 /* Light.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9AC3FBB2070EB1E0097F3D0 /* Light.storyboard */; };
+		D9AC3FBE2070ED3A0097F3D0 /* LightSidebarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AC3FBD2070ED3A0097F3D0 /* LightSidebarVC.swift */; };
+		D9AC3FC02070F6B50097F3D0 /* User.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9AC3FBF2070F6B50097F3D0 /* User.storyboard */; };
+		D9AC3FCA2071FC310097F3D0 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9AC3FC92071FC310097F3D0 /* Settings.storyboard */; };
+		D9AC3FCD2071FCD10097F3D0 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AC3FCC2071FCD10097F3D0 /* MainVC.swift */; };
+		D9AC3FCF2071FCF80097F3D0 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AC3FCE2071FCF80097F3D0 /* HomeVC.swift */; };
+		D9AC3FD62071FF380097F3D0 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9AC3FD52071FF380097F3D0 /* Auth.storyboard */; };
+		D9AC3FD82072011D0097F3D0 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AC3FD72072011D0097F3D0 /* LoginVC.swift */; };
+		D9AC3FDA207202B40097F3D0 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AC3FD9207202B40097F3D0 /* SettingsVC.swift */; };
+		D9AC3FDC207206A30097F3D0 /* ForgetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AC3FDB207206A30097F3D0 /* ForgetPasswordVC.swift */; };
+		E7A3B727113CBAD1BE303DF0 /* Pods_SmarcHome.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB12225A328A06440FD3F71E /* Pods_SmarcHome.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		03507E6740005D9E9846C749 /* Pods-SmarcHome.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmarcHome.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmarcHome/Pods-SmarcHome.release.xcconfig"; sourceTree = "<group>"; };
+		D9330F8120739CFB00B0E75F /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		D9330F832074A60300B0E75F /* AuthConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthConst.swift; sourceTree = "<group>"; };
+		D9330F872076793100B0E75F /* UserEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEditVC.swift; sourceTree = "<group>"; };
+		D9330F89207679BA00B0E75F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D9330F8B20767A6000B0E75F /* UserProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProtocol.swift; sourceTree = "<group>"; };
+		D9330F8D20767BA600B0E75F /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		D9330F8F20767C2C00B0E75F /* UserConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserConst.swift; sourceTree = "<group>"; };
+		D9AC3F742070B3750097F3D0 /* SmarcHome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmarcHome.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9AC3F772070B3750097F3D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D9AC3F7E2070B3760097F3D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D9AC3F812070B3760097F3D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D9AC3F832070B3760097F3D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D9AC3FA32070B9730097F3D0 /* LightIndexVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightIndexVC.swift; sourceTree = "<group>"; };
+		D9AC3FAC2070D96F0097F3D0 /* UserIndexVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIndexVC.swift; sourceTree = "<group>"; };
+		D9AC3FB52070E0660097F3D0 /* SmarcHome-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SmarcHome-Bridging-Header.h"; sourceTree = "<group>"; };
+		D9AC3FB62070E0670097F3D0 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		D9AC3FB72070E0670097F3D0 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		D9AC3FB92070E9FB0097F3D0 /* Core.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Core.storyboard; sourceTree = "<group>"; };
+		D9AC3FBB2070EB1E0097F3D0 /* Light.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Light.storyboard; sourceTree = "<group>"; };
+		D9AC3FBD2070ED3A0097F3D0 /* LightSidebarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightSidebarVC.swift; sourceTree = "<group>"; };
+		D9AC3FBF2070F6B50097F3D0 /* User.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = User.storyboard; sourceTree = "<group>"; };
+		D9AC3FC92071FC310097F3D0 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		D9AC3FCC2071FCD10097F3D0 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		D9AC3FCE2071FCF80097F3D0 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		D9AC3FD52071FF380097F3D0 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
+		D9AC3FD72072011D0097F3D0 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		D9AC3FD9207202B40097F3D0 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		D9AC3FDB207206A30097F3D0 /* ForgetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordVC.swift; sourceTree = "<group>"; };
+		F269234A4324BF7A9D0ACAF4 /* Pods-SmarcHome.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmarcHome.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmarcHome/Pods-SmarcHome.debug.xcconfig"; sourceTree = "<group>"; };
+		FB12225A328A06440FD3F71E /* Pods_SmarcHome.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmarcHome.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D9AC3F712070B3750097F3D0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7A3B727113CBAD1BE303DF0 /* Pods_SmarcHome.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BC3C20ECF39DFBF22804B0DC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FB12225A328A06440FD3F71E /* Pods_SmarcHome.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BCC82993DD7C5DEFD6124737 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F269234A4324BF7A9D0ACAF4 /* Pods-SmarcHome.debug.xcconfig */,
+				03507E6740005D9E9846C749 /* Pods-SmarcHome.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D9AC3F6B2070B3750097F3D0 = {
+			isa = PBXGroup;
+			children = (
+				D9AC3F762070B3750097F3D0 /* SmarcHome */,
+				D9AC3F752070B3750097F3D0 /* Products */,
+				BCC82993DD7C5DEFD6124737 /* Pods */,
+				BC3C20ECF39DFBF22804B0DC /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		D9AC3F752070B3750097F3D0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D9AC3F742070B3750097F3D0 /* SmarcHome.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D9AC3F762070B3750097F3D0 /* SmarcHome */ = {
+			isa = PBXGroup;
+			children = (
+				D9AC3F8A2070B3BF0097F3D0 /* Components */,
+				D9AC3F892070B3A30097F3D0 /* Core */,
+				D9AC3F772070B3750097F3D0 /* AppDelegate.swift */,
+				D9AC3F7E2070B3760097F3D0 /* Assets.xcassets */,
+				D9AC3F802070B3760097F3D0 /* LaunchScreen.storyboard */,
+				D9AC3F832070B3760097F3D0 /* Info.plist */,
+			);
+			path = SmarcHome;
+			sourceTree = "<group>";
+		};
+		D9AC3F892070B3A30097F3D0 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				D9AC3FCB2071FC6D0097F3D0 /* View */,
+				D9AC3FB02070E01A0097F3D0 /* Supporting Files */,
+				D9AC3F9C2070B5270097F3D0 /* Controller */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		D9AC3F8A2070B3BF0097F3D0 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				D9AC3FC32071FBD90097F3D0 /* Settings */,
+				D9AC3F952070B4130097F3D0 /* User */,
+				D9AC3F942070B40B0097F3D0 /* Siren */,
+				D9AC3F932070B4020097F3D0 /* Security */,
+				D9AC3F922070B3FC0097F3D0 /* Scene */,
+				D9AC3F912070B3F70097F3D0 /* Room */,
+				D9AC3F902070B3F00097F3D0 /* Music */,
+				D9AC3F8F2070B3E90097F3D0 /* Motor */,
+				D9AC3F8E2070B3DB0097F3D0 /* Light */,
+				D9AC3F8D2070B3D60097F3D0 /* Door */,
+				D9AC3F8C2070B3CF0097F3D0 /* Cam */,
+				D9AC3F8B2070B3C60097F3D0 /* Auth */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		D9AC3F8B2070B3C60097F3D0 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				D9AC3FD42071FF240097F3D0 /* Constant */,
+				D9AC3FD32071FF1E0097F3D0 /* Service */,
+				D9AC3FD22071FF190097F3D0 /* Controller */,
+				D9AC3FD12071FF150097F3D0 /* View */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		D9AC3F8C2070B3CF0097F3D0 /* Cam */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cam;
+			sourceTree = "<group>";
+		};
+		D9AC3F8D2070B3D60097F3D0 /* Door */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Door;
+			sourceTree = "<group>";
+		};
+		D9AC3F8E2070B3DB0097F3D0 /* Light */ = {
+			isa = PBXGroup;
+			children = (
+				D9AC3F9A2070B4E20097F3D0 /* Constant */,
+				D9AC3F992070B4CE0097F3D0 /* Service */,
+				D9AC3F982070B4C70097F3D0 /* View */,
+				D9AC3F972070B4BF0097F3D0 /* Controller */,
+				D9AC3F962070B4400097F3D0 /* Model */,
+			);
+			path = Light;
+			sourceTree = "<group>";
+		};
+		D9AC3F8F2070B3E90097F3D0 /* Motor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Motor;
+			sourceTree = "<group>";
+		};
+		D9AC3F902070B3F00097F3D0 /* Music */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Music;
+			sourceTree = "<group>";
+		};
+		D9AC3F912070B3F70097F3D0 /* Room */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Room;
+			sourceTree = "<group>";
+		};
+		D9AC3F922070B3FC0097F3D0 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		D9AC3F932070B4020097F3D0 /* Security */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Security;
+			sourceTree = "<group>";
+		};
+		D9AC3F942070B40B0097F3D0 /* Siren */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Siren;
+			sourceTree = "<group>";
+		};
+		D9AC3F952070B4130097F3D0 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				D9AC3FAB2070D94F0097F3D0 /* Service */,
+				D9AC3FAA2070D9480097F3D0 /* Model */,
+				D9AC3FA92070D9400097F3D0 /* Constant */,
+				D9AC3FA82070D9360097F3D0 /* View */,
+				D9AC3FA72070D92F0097F3D0 /* Controller */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		D9AC3F962070B4400097F3D0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D9AC3F972070B4BF0097F3D0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D9AC3FA32070B9730097F3D0 /* LightIndexVC.swift */,
+				D9AC3FBD2070ED3A0097F3D0 /* LightSidebarVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D9AC3F982070B4C70097F3D0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D9AC3FBB2070EB1E0097F3D0 /* Light.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D9AC3F992070B4CE0097F3D0 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		D9AC3F9A2070B4E20097F3D0 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
+		D9AC3F9C2070B5270097F3D0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D9AC3FCC2071FCD10097F3D0 /* MainVC.swift */,
+				D9AC3FCE2071FCF80097F3D0 /* HomeVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D9AC3FA72070D92F0097F3D0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D9AC3FAC2070D96F0097F3D0 /* UserIndexVC.swift */,
+				D9330F872076793100B0E75F /* UserEditVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D9AC3FA82070D9360097F3D0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D9AC3FBF2070F6B50097F3D0 /* User.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D9AC3FA92070D9400097F3D0 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				D9330F8F20767C2C00B0E75F /* UserConst.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
+		D9AC3FAA2070D9480097F3D0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D9330F89207679BA00B0E75F /* User.swift */,
+				D9330F8B20767A6000B0E75F /* UserProtocol.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D9AC3FAB2070D94F0097F3D0 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				D9330F8D20767BA600B0E75F /* UserService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		D9AC3FB02070E01A0097F3D0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D9AC3FB72070E0670097F3D0 /* SWRevealViewController.h */,
+				D9AC3FB62070E0670097F3D0 /* SWRevealViewController.m */,
+				D9AC3FB52070E0660097F3D0 /* SmarcHome-Bridging-Header.h */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D9AC3FC32071FBD90097F3D0 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				D9AC3FC82071FC000097F3D0 /* Constant */,
+				D9AC3FC72071FBFA0097F3D0 /* Service */,
+				D9AC3FC62071FBEE0097F3D0 /* Controller */,
+				D9AC3FC52071FBEA0097F3D0 /* View */,
+				D9AC3FC42071FBE50097F3D0 /* Model */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		D9AC3FC42071FBE50097F3D0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D9AC3FC52071FBEA0097F3D0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D9AC3FC92071FC310097F3D0 /* Settings.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D9AC3FC62071FBEE0097F3D0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D9AC3FD9207202B40097F3D0 /* SettingsVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D9AC3FC72071FBFA0097F3D0 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		D9AC3FC82071FC000097F3D0 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
+		D9AC3FCB2071FC6D0097F3D0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D9AC3FB92070E9FB0097F3D0 /* Core.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D9AC3FD12071FF150097F3D0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D9AC3FD52071FF380097F3D0 /* Auth.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D9AC3FD22071FF190097F3D0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D9AC3FD72072011D0097F3D0 /* LoginVC.swift */,
+				D9AC3FDB207206A30097F3D0 /* ForgetPasswordVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D9AC3FD32071FF1E0097F3D0 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				D9330F8120739CFB00B0E75F /* AuthService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		D9AC3FD42071FF240097F3D0 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				D9330F832074A60300B0E75F /* AuthConst.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D9AC3F732070B3750097F3D0 /* SmarcHome */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D9AC3F862070B3760097F3D0 /* Build configuration list for PBXNativeTarget "SmarcHome" */;
+			buildPhases = (
+				51E48162597949D93914FFBB /* [CP] Check Pods Manifest.lock */,
+				D9AC3F702070B3750097F3D0 /* Sources */,
+				D9AC3F712070B3750097F3D0 /* Frameworks */,
+				D9AC3F722070B3750097F3D0 /* Resources */,
+				EB206187D9E617C4E5619D3B /* [CP] Embed Pods Frameworks */,
+				569948429C80DBE429A297F7 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SmarcHome;
+			productName = SmarcHome;
+			productReference = D9AC3F742070B3750097F3D0 /* SmarcHome.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D9AC3F6C2070B3750097F3D0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = "Ibrahim Saqr";
+				TargetAttributes = {
+					D9AC3F732070B3750097F3D0 = {
+						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 0930;
+					};
+				};
+			};
+			buildConfigurationList = D9AC3F6F2070B3750097F3D0 /* Build configuration list for PBXProject "SmarcHome" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D9AC3F6B2070B3750097F3D0;
+			productRefGroup = D9AC3F752070B3750097F3D0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D9AC3F732070B3750097F3D0 /* SmarcHome */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D9AC3F722070B3750097F3D0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9AC3F822070B3760097F3D0 /* LaunchScreen.storyboard in Resources */,
+				D9AC3FC02070F6B50097F3D0 /* User.storyboard in Resources */,
+				D9AC3F7F2070B3760097F3D0 /* Assets.xcassets in Resources */,
+				D9AC3FCA2071FC310097F3D0 /* Settings.storyboard in Resources */,
+				D9AC3FBA2070E9FB0097F3D0 /* Core.storyboard in Resources */,
+				D9AC3FBC2070EB1E0097F3D0 /* Light.storyboard in Resources */,
+				D9AC3FD62071FF380097F3D0 /* Auth.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		51E48162597949D93914FFBB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SmarcHome-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		569948429C80DBE429A297F7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SmarcHome/Pods-SmarcHome-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EB206187D9E617C4E5619D3B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SmarcHome/Pods-SmarcHome-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SmarcHome/Pods-SmarcHome-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D9AC3F702070B3750097F3D0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9330F882076793100B0E75F /* UserEditVC.swift in Sources */,
+				D9AC3FAE2070D96F0097F3D0 /* UserIndexVC.swift in Sources */,
+				D9AC3FDC207206A30097F3D0 /* ForgetPasswordVC.swift in Sources */,
+				D9AC3F782070B3750097F3D0 /* AppDelegate.swift in Sources */,
+				D9330F9020767C2C00B0E75F /* UserConst.swift in Sources */,
+				D9AC3FBE2070ED3A0097F3D0 /* LightSidebarVC.swift in Sources */,
+				D9AC3FCF2071FCF80097F3D0 /* HomeVC.swift in Sources */,
+				D9330F8A207679BA00B0E75F /* User.swift in Sources */,
+				D9AC3FB82070E0670097F3D0 /* SWRevealViewController.m in Sources */,
+				D9330F8C20767A6000B0E75F /* UserProtocol.swift in Sources */,
+				D9AC3FD82072011D0097F3D0 /* LoginVC.swift in Sources */,
+				D9AC3FCD2071FCD10097F3D0 /* MainVC.swift in Sources */,
+				D9330F842074A60300B0E75F /* AuthConst.swift in Sources */,
+				D9330F8E20767BA600B0E75F /* UserService.swift in Sources */,
+				D9AC3FA52070B9730097F3D0 /* LightIndexVC.swift in Sources */,
+				D9AC3FDA207202B40097F3D0 /* SettingsVC.swift in Sources */,
+				D9330F8220739CFB00B0E75F /* AuthService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D9AC3F802070B3760097F3D0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D9AC3F812070B3760097F3D0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D9AC3F842070B3760097F3D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D9AC3F852070B3760097F3D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D9AC3F872070B3760097F3D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F269234A4324BF7A9D0ACAF4 /* Pods-SmarcHome.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T73KH3XDW6;
+				INFOPLIST_FILE = SmarcHome/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Smarc.SmarcHome;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SmarcHome/Core/Supporting Files/SmarcHome-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D9AC3F882070B3760097F3D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 03507E6740005D9E9846C749 /* Pods-SmarcHome.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T73KH3XDW6;
+				INFOPLIST_FILE = SmarcHome/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Smarc.SmarcHome;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SmarcHome/Core/Supporting Files/SmarcHome-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D9AC3F6F2070B3750097F3D0 /* Build configuration list for PBXProject "SmarcHome" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9AC3F842070B3760097F3D0 /* Debug */,
+				D9AC3F852070B3760097F3D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D9AC3F862070B3760097F3D0 /* Build configuration list for PBXNativeTarget "SmarcHome" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9AC3F872070B3760097F3D0 /* Debug */,
+				D9AC3F882070B3760097F3D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D9AC3F6C2070B3750097F3D0 /* Project object */;
+}
