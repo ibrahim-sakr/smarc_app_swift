@@ -9,9 +9,16 @@
 import UIKit
 
 class UserEditVC: UIViewController {
+    
+    // the current selected user
+    var user: User!
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+//    override func viewWillAppear(animated: Bool) {
+//        blogNameLabel.text = blogName
+//    }
 
 }

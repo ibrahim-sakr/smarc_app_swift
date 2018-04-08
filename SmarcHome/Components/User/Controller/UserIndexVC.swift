@@ -11,46 +11,81 @@ import UIKit
 class UserIndexVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var usersTable: UITableView!
+    
+    private var usersList: [User] = []
 
+    @IBAction func onHomeBtmClicked(_ sender: UIButton) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Core", bundle: nil)
+        
+        let nextVC = storyBoard.instantiateViewController(withIdentifier: "HomePage")
+        
+        self.present(nextVC, animated: true, completion: nil)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("ْUser VC Loaded")
         self.retrieveUsers()
+        self.usersTable.dataSource = self
+        self.usersTable.delegate = self
     }
 
+    /**
+     * get all users from User Service and append them into the table
+     */
     func retrieveUsers() -> Void {
-        // dispaly loading page
-//        let sv = UIViewController.displaySpinner(onView: self.view)
-        // load the users
-        if UserService.instance.users.count == 0 {
-            UserService.instance.all(){ (success) in
-                if(success) {
-                    self.usersTable.dataSource = self
-                    self.usersTable.delegate = self
-
-                    self.viewDidLoad()
-                    // hide loading screen
-                    //                UIViewController.removeSpinner(spinner: sv)
-                } else {
-                    print("Failed to retrieve the users")
-                }
+        UserService.instance.all(){ (success) in
+            if(success) {
+                self.usersList = UserService.instance.users
+                self.usersTable.reloadData()
+            } else {
+                print("Failed to retrieve the users")
             }
         }
-        
+    }
+    
+    /**
+     * define and return the total number of sections into the table
+     */
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
     }
 
+    /**
+     * return the total number of row the currently into the table
+     */
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return UserService.instance.users.count;
+        return usersList.count
     }
 
+    /**
+     * render the cell or the row
+     * it get the template that we defined for the cell, then pass some data to it
+     * finally append it to the table with dequeueReusableCell
+     */
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = usersTable.dequeueReusableCell(withIdentifier: "UserListCell", for: indexPath) as? UserListCell {
-            let userData = UserService.instance.users[indexPath.row]
-            cell.updateView(user: userData)
+        let cell = usersTable.dequeueReusableCell(withIdentifier: "UserListCell", for: indexPath) as! UserListCell
+        cell.updateView(user: usersList[indexPath.row])
+        
+        return cell
+    }
+    
+    /**
+     * this method just for UI
+     * it deselect the row so it back to the default state
+     */
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.usersTable.deselectRow(at: indexPath, animated: true)
+    }
+    
+    /**
+     * if we gonna navigate to a certain ViewController
+     * then we pass to it some data before navigation
+     */
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if  segue.identifier == "EditUser",
+            let destination = segue.destination as? UserEditVC,
+            let blogIndex = self.usersTable.indexPathForSelectedRow?.row {
 
-            return cell
-        } else {
-            return UserListCell()
+            destination.user = self.usersList[blogIndex]
         }
     }
 

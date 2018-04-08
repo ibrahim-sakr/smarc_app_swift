@@ -10,13 +10,9 @@ import UIKit
 
 class UserListCell: UITableViewCell {
     
-    // private var id: String!;
-
     @IBOutlet weak var name: UILabel!;
 
     func updateView(user: User) {
-        print(user)
-        // self.id = user._id;
         self.name.text = user.name;
     }
 }
