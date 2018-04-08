@@ -8,22 +8,8 @@
 
 import Foundation
 
-struct User: UserProtocol {
-    func index() {
-        <#code#>
-    }
-    
-    func find(id: String) {
-        <#code#>
-    }
-    
-    func update(id: String, user: User) {
-        <#code#>
-    }
-    
-    func delete(id: String) {
-        <#code#>
-    }
-    
-    
+struct User: Decodable {
+    public private(set) var _id: String;
+    public private(set) var email: String;
+    public private(set) var name: String;
 }

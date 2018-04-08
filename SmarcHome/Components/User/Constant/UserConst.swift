@@ -8,4 +8,7 @@
 
 import Foundation
 
-let USER_INDEX_URL = "\(BASE_URL)/user"
+
+class UserConst {
+    static let INDEX_URL = "\(CoreConst.BASE_URL)/user"
+}

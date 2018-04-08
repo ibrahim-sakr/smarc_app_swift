@@ -21,18 +21,14 @@ class LoginVC: UIViewController {
     }
 
     @IBAction func onBackBtnClicked(_ sender: Any) {
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Core", bundle: nil)
-        
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: "MainPage")
-        
+        let storyBoard: UIStoryboard = UIStoryboard(name: CoreConst.STORYBOARD_ID, bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: CoreConst.MAIN_PAGE_ID)
         self.present(newViewController, animated: true, completion: nil)
     }
 
     @IBAction func onForgetPasswordBtnClicked(_ sender: Any) {
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Auth", bundle: nil)
-
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: "ForgetPasswordPage")
-
+        let storyBoard: UIStoryboard = UIStoryboard(name: AuthConst.STORYBOARD_ID, bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: AuthConst.FORGET_PASSWORD_PAGE)
         self.present(newViewController, animated: true, completion: nil)
     }
 
@@ -50,8 +46,8 @@ class LoginVC: UIViewController {
 
             if success {
                 // redirect to home page
-                let storyBoard: UIStoryboard = UIStoryboard(name: "Core", bundle: nil)
-                let newViewController = storyBoard.instantiateViewController(withIdentifier: "HomePage")
+                let storyBoard: UIStoryboard = UIStoryboard(name: CoreConst.STORYBOARD_ID, bundle: nil)
+                let newViewController = storyBoard.instantiateViewController(withIdentifier: CoreConst.HOME_PAGE_ID)
                 self.present(newViewController, animated: true, completion: nil)
             } else {
                 print("Login Failed");

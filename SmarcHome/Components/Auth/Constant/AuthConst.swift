@@ -8,22 +8,14 @@
 
 import Foundation
 
-let LOGGED_IN_KEY = "loggedin";
-let TOKEN_KEY = "token";
-let USER_KEY = "user";
-let EMAIL_KEY = "email";
-let NAME_KEY = "name";
-
-let BASE_URL = "http://127.0.0.1:3100";
-let LOGIN_URL = "\(BASE_URL)/user/auth";
-
-typealias CompletionHandler = (_ Sucess: Bool) -> ();
-
-let HEADERS = [
-    "Content-Type": "application/json"
-];
-
-let AUTH_HEADERS = [
-    "token": "Berear \(AuthService.instance.token)",
-    "Content-Type": "application/json"
-];
+class AuthConst {
+    static let STORYBOARD_ID = "Auth";
+    static let FORGET_PASSWORD_PAGE = "ForgetPasswordPage";
+    static let LOGGED_IN_KEY = "loggedin";
+    static let TOKEN_KEY = "token";
+    static let USER_KEY = "user";
+    static let EMAIL_KEY = "email";
+    static let NAME_KEY = "name";
+    static let PASSWORD_KEY = "password";
+    static let LOGIN_URL = "\(CoreConst.BASE_URL)/user/auth";
+}
