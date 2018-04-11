@@ -41,18 +41,16 @@ class AuthService {
             if self.userTemp["_id"].string != nil {
                 return self.userTemp
             } else {
-                let value = self.keychain.get(AuthConst.USER_KEY)!
-                let valueToData = value.data(using: .utf8, allowLossyConversion: false)
-                var json: JSON = JSON()
-    
-                do {
-                    json = try JSON(data: valueToData!)
+                let value: String = self.keychain.get(AuthConst.USER_KEY)!
+                let json: JSON = JSON(stringLiteral: value)
+                
+                if json.boolValue {
                     self.userTemp = json
-                } catch {
-                    print("GET USER ERROR")
-                    return self.userTemp
+
+                    return json
                 }
-                return json
+
+                return self.userTemp
             }
         }
         set {

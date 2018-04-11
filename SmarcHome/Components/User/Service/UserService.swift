@@ -10,7 +10,7 @@ import Foundation;
 import Alamofire;
 import SwiftyJSON;
 
-class UserService {
+class UserService: IntegrateSocketProtocol {
 
     static let instance = UserService();
 
@@ -32,6 +32,10 @@ class UserService {
 
         }
 
+    }
+
+    func notify(data: JSON) {
+        print("Light Data Comming")
     }
 
 }

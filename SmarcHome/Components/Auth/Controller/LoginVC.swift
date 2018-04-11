@@ -45,6 +45,9 @@ class LoginVC: UIViewController {
             self.spinner.stopAnimating();
 
             if success {
+                // connect to SocketIO
+                SocketIOService.instance.connect()
+
                 // redirect to home page
                 let storyBoard: UIStoryboard = UIStoryboard(name: CoreConst.STORYBOARD_ID, bundle: nil)
                 let newViewController = storyBoard.instantiateViewController(withIdentifier: CoreConst.HOME_PAGE_ID)

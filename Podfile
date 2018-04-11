@@ -10,7 +10,7 @@ target 'SmarcHome' do
   # Pods for SmarcHome
   pod 'Alamofire'
   pod 'KeychainSwift'
-  pod 'Alamofire'
   pod 'SwiftyJSON'
+  pod 'Socket.IO-Client-Swift'
 
 end
