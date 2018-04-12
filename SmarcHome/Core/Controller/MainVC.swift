@@ -14,6 +14,18 @@ class MainVC: UIViewController {
         print("Main VC Loaded");
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        // if user is LoggedIn so no need to stay here at all
+        // and redirect to home page
+        if AuthService.instance.isLoggedIn {
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Core", bundle: nil)
+
+            let nextVC = storyBoard.instantiateViewController(withIdentifier: "HomePage")
+
+            self.present(nextVC, animated: true, completion: nil)
+        }
+    }
+
     @IBAction func onDemoBtnClicked(_ sender: Any) {
         let alert = UIAlertController(title: "Sorry!!", message: "the demo is Not ready yet.\nplease try to login", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))

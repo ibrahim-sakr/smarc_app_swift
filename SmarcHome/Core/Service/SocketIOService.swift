@@ -37,20 +37,16 @@ class SocketIOService: NSObject {
     func registerEvents() {
         self.socket.on(CoreConst.SOCKET_INCOME_DATA) { (dataArray, ack) in
             // extract needed variables
-            let income = dataArray[0] as! [String: Any]
-
+            let income = dataArray[0] as! Dictionary<String, Any>
+            
             // get type as string
             let type = income["type"] as! String
 
             // cast the data to it's type class
             if SocketListners[type] != nil {
 
-                // get data as string
-                let dataAsString = income["data"].debugDescription
-
                 // convert data to type JSON
-                let dataAsJSON = JSON(stringLiteral: dataAsString)
-
+                let dataAsJSON = JSON(income["data"]!)
                 SocketListners[type]?.notify(data: dataAsJSON)
             }
         }

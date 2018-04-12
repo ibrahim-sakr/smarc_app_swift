@@ -1,5 +1,5 @@
 //
-//  Point.swift
+//  LightConst.swift
 //  SmarcHome
 //
 //  Created by Ibrahim Saqr on 4/11/18.
@@ -8,7 +8,6 @@
 
 import Foundation
 
-struct Point: Decodable {
-    public private(set) var _id: String;
-    public private(set) var email: String;
+class LightConst {
+    static let INDEX_URL = "\(CoreConst.BASE_API_URL)/light"
 }

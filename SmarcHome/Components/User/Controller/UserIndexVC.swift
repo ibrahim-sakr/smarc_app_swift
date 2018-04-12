@@ -9,18 +9,17 @@
 import UIKit
 
 class UserIndexVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    
+
     @IBOutlet weak var usersTable: UITableView!
-    
-    private var usersList: [User] = []
 
     @IBAction func onHomeBtmClicked(_ sender: UIButton) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Core", bundle: nil)
-        
+
         let nextVC = storyBoard.instantiateViewController(withIdentifier: "HomePage")
-        
+
         self.present(nextVC, animated: true, completion: nil)
     }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.retrieveUsers()
@@ -34,8 +33,7 @@ class UserIndexVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
     func retrieveUsers() -> Void {
         UserService.instance.all(){ (success) in
             if(success) {
-                self.usersList = UserService.instance.users
-                self.usersTable.reloadData()
+
             } else {
                 print("Failed to retrieve the users")
             }
@@ -53,7 +51,7 @@ class UserIndexVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
      * return the total number of row the currently into the table
      */
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return usersList.count
+        return UserService.instance.users.count
     }
 
     /**
@@ -63,7 +61,7 @@ class UserIndexVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
      */
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = usersTable.dequeueReusableCell(withIdentifier: "UserListCell", for: indexPath) as! UserListCell
-        cell.updateView(user: usersList[indexPath.row])
+        cell.updateView(user: UserService.instance.users[indexPath.row])
         
         return cell
     }
@@ -85,7 +83,7 @@ class UserIndexVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
             let destination = segue.destination as? UserEditVC,
             let blogIndex = self.usersTable.indexPathForSelectedRow?.row {
 
-            destination.user = self.usersList[blogIndex]
+            destination.user = UserService.instance.users[blogIndex]
         }
     }
 
