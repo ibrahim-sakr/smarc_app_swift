@@ -10,21 +10,19 @@ import Foundation
 import Alamofire;
 import SwiftyJSON;
 
-class LightService: IntegrateSocketProtocol {
-    
+class LightService: IntegrateSocketProtocol, RefreshableProtocol {
+
     static let instance = LightService();
     
     var VC: UpgradableList!
-    
-    private var rowIndex: Int = 0
 
-    public private(set) var points: [LightPoint] = [LightPoint]() {
+    public private(set) var points: [LightPoint] = [] {
         // run before points changed
         willSet(newValue) {}
 
         // run after the points changed
-        didSet(oldValue) {
-            self.VC.updateList(index: self.rowIndex)
+        didSet(newValue) {
+            self.VC.updateList()
         }
     }
 
@@ -44,6 +42,24 @@ class LightService: IntegrateSocketProtocol {
                 }
         }
     }
+    
+    func toggle(point: LightPoint, completion: @escaping CompletionHandler) -> Void {
+        Alamofire.request(LightConst.TOGGLE_URL + point._id, method: .get, encoding: JSONEncoding.default, headers: CoreConst.AUTH_HEADERS)
+            .responseJSON{(response) in
+                if response.result.error == nil {
+                    guard let data = response.data else { return }
+                    let dataJSON = try! JSON(data: data)
+
+                    if let i = self.points.index(where: { $0._id == dataJSON["_id"].stringValue }) {
+                        // update it
+                        self.points[i].status = dataJSON["status"].boolValue
+                    }
+                    completion(true)
+                } else {
+                    completion(false)
+                }
+        }
+    }
 
     /**
      * this method recieved any Light data comes from SocketIO to handle it
@@ -52,10 +68,20 @@ class LightService: IntegrateSocketProtocol {
         let _id = data["_id"].stringValue
         // select from self.points where 'id' = data["id"].string
         if let i = self.points.index(where: { $0._id == _id }) {
-            // save index to send it back to the VC
-            self.rowIndex = i
             // update it
             self.points[i].status = data["status"].boolValue
         }
     }
+    
+    func refresh() {
+        self.points = []
+        self.all { (success) in
+            if success {
+                print("Reload success")
+            } else {
+                print("Failed to Reload")
+            }
+        }
+    }
+    
 }

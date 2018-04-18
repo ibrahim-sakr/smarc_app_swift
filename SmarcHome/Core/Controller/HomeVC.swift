@@ -25,6 +25,13 @@ class HomeVC: UIViewController {
         self.present(nextVC, animated: true, completion: nil)
     }
 
+    @IBAction func onUsersBtnClicked(_ sender: Any) {
+        print("Navigating to Users Page");
+        let storyBoard: UIStoryboard = UIStoryboard(name: "User", bundle: nil)
+        let nextVC = storyBoard.instantiateViewController(withIdentifier: "UserIndexList")
+        self.present(nextVC, animated: true, completion: nil)
+    }
+
     @IBAction func onLogoutBtmClicked(_ sender: Any) {
         print("Navigating to Main Page");
         AuthService.instance.logout();

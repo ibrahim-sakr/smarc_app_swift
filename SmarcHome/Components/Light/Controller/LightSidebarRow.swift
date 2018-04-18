@@ -10,8 +10,8 @@ import UIKit
 
 class LightSidebarRow: UITableViewCell {
 
-    @IBOutlet weak var staticBtm: UIButton!
-
+    @IBOutlet weak var label: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -20,11 +20,7 @@ class LightSidebarRow: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
 
-    @IBAction func onStaticBtmClicked(_ sender: Any) {
-        print("static button clicked")
-    }
-
     func updateView(room: Room) {
-        self.staticBtm.setTitle(room.name, for: .normal)
+        self.label.text = room.name
     }
 }

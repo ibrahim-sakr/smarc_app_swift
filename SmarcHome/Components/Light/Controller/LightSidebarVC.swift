@@ -25,7 +25,17 @@ class LightSidebarVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "HomePage")
         self.present(newViewController, animated: true, completion: nil)
     }
-    
+
+    @IBAction func onAllPointsBtnClicked(_ sender: Any) {
+        let controller = self.storyboard?.instantiateViewController(withIdentifier: "LightPoints") as? LightIndexVC
+        controller?.roomId = ""
+        controller?.headTitle = "List Of All Points"
+        
+        let nextController = revealViewController().frontViewController as! UINavigationController
+        nextController.pushViewController(controller!, animated: false)
+        revealViewController().pushFrontViewController(nextController, animated: true)
+    }
+
     func getRooms() {
         RoomService.instance.all { (success) in
             if success {
@@ -52,5 +62,17 @@ class LightSidebarVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+
+        let controller = self.storyboard?.instantiateViewController(withIdentifier: "LightPoints") as? LightIndexVC
+        controller?.roomId = RoomService.instance.rooms[indexPath.row]._id
+        controller?.headTitle = RoomService.instance.rooms[indexPath.row].name
+        
+        let nextController = revealViewController().frontViewController as! UINavigationController
+        nextController.pushViewController(controller!, animated: false)
+        revealViewController().pushFrontViewController(nextController, animated: true)
     }
 }

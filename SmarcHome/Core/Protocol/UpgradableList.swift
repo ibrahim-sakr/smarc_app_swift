@@ -9,5 +9,5 @@
 import Foundation
 
 protocol UpgradableList {
-    func updateList(index: Int)
+    func updateList()
 }

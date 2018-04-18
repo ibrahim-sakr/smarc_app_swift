@@ -15,10 +15,7 @@ class UserEditVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(self.user)
     }
-    
-//    override func viewWillAppear(animated: Bool) {
-//        blogNameLabel.text = blogName
-//    }
 
 }

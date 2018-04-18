@@ -9,15 +9,19 @@
 import UIKit
 
 class UserIndexVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    private var selectedUser: User!
 
     @IBOutlet weak var usersTable: UITableView!
 
     @IBAction func onHomeBtmClicked(_ sender: UIButton) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Core", bundle: nil)
-
         let nextVC = storyBoard.instantiateViewController(withIdentifier: "HomePage")
-
         self.present(nextVC, animated: true, completion: nil)
+    }
+
+    @IBAction func onNewBtnClicked(_ sender: Any) {
+        performSegue(withIdentifier: "toUserCreate", sender: nil)
     }
 
     override func viewDidLoad() {
@@ -33,7 +37,7 @@ class UserIndexVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
     func retrieveUsers() -> Void {
         UserService.instance.all(){ (success) in
             if(success) {
-
+                self.usersTable.reloadData()
             } else {
                 print("Failed to retrieve the users")
             }
@@ -72,18 +76,24 @@ class UserIndexVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
      */
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.usersTable.deselectRow(at: indexPath, animated: true)
-    }
-    
-    /**
-     * if we gonna navigate to a certain ViewController
-     * then we pass to it some data before navigation
-     */
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if  segue.identifier == "EditUser",
-            let destination = segue.destination as? UserEditVC,
-            let blogIndex = self.usersTable.indexPathForSelectedRow?.row {
+        
+        let actionSheet = UIAlertController(title: UserService.instance.users[indexPath.row].name, message: "What do you need to do", preferredStyle: .actionSheet)
+        actionSheet.addAction(UIAlertAction(title: "edit", style: .default, handler: { (action) in
+            self.selectedUser = UserService.instance.users[indexPath.row]
+            self.performSegue(withIdentifier: "toEditUser", sender: nil)
+        }))
+        actionSheet.addAction(UIAlertAction(title: "delete", style: UIAlertActionStyle.destructive, handler: { (action) in
+            
+        }))
+        actionSheet.addAction(UIAlertAction(title: "cancel", style: UIAlertActionStyle.cancel, handler: nil))
 
-            destination.user = UserService.instance.users[blogIndex]
+        self.present(actionSheet, animated: true, completion: nil)
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is UserEditVC {
+            let vc = segue.destination as? UserEditVC
+            vc?.user = self.selectedUser
         }
     }
 

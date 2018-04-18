@@ -35,6 +35,15 @@
                                     <action selector="onLogoutBtmClicked:" destination="jWS-Xu-jz5" eventType="touchUpInside" id="pms-dB-h9h"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uzb-mL-Z9K">
+                                <rect key="frame" x="145" y="173" width="85" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                                <state key="normal" title="USERS"/>
+                                <connections>
+                                    <action selector="onUsersBtnClicked:" destination="jWS-Xu-jz5" eventType="touchUpInside" id="Bov-V1-Skk"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>

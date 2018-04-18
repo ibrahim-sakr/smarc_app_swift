@@ -44,7 +44,6 @@ class SocketIOService: NSObject {
 
             // cast the data to it's type class
             if SocketListners[type] != nil {
-
                 // convert data to type JSON
                 let dataAsJSON = JSON(income["data"]!)
                 SocketListners[type]?.notify(data: dataAsJSON)
