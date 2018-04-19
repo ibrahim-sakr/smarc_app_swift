@@ -11,7 +11,6 @@ class MainVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad();
-        print("Main VC Loaded");
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -19,9 +18,7 @@ class MainVC: UIViewController {
         // and redirect to home page
         if AuthService.instance.isLoggedIn {
             let storyBoard: UIStoryboard = UIStoryboard(name: "Core", bundle: nil)
-
             let nextVC = storyBoard.instantiateViewController(withIdentifier: "HomePage")
-
             self.present(nextVC, animated: true, completion: nil)
         }
     }
@@ -33,22 +30,14 @@ class MainVC: UIViewController {
     }
 
     @IBAction func onLoginBtnClicked(_ sender: Any) {
-        print("Navigating to Login Page");
-
         let storyBoard: UIStoryboard = UIStoryboard(name: "Auth", bundle: nil)
-        
         let nextVC = storyBoard.instantiateViewController(withIdentifier: "LoginPage")
-        
         self.present(nextVC, animated: true, completion: nil)
     }
 
     @IBAction func onSettingsBtnClicked(_ sender: Any) {
-        print("Navigating to Settings Page");
-        
         let storyBoard: UIStoryboard = UIStoryboard(name: "Settings", bundle: nil)
-        
         let nextVC = storyBoard.instantiateViewController(withIdentifier: "SettingsPage")
-        
         self.present(nextVC, animated: true, completion: nil)
     }
 }

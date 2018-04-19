@@ -9,7 +9,19 @@
 import Foundation
 
 struct User: Decodable {
-    public private(set) var _id: String;
-    public private(set) var email: String;
-    public private(set) var name: String;
+    public var _id: String!
+    public var email: String!
+    public var name: String!
+    public var password: String!
+    public private(set) var dictionary: [String: Any] {
+        get {
+            return [
+                "_id": _id!,
+                "email": email!,
+                "name": name!,
+                "password": password != nil ? password : "",
+            ]
+        }
+        set {}
+    }
 }

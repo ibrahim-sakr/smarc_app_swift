@@ -18,25 +18,102 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Setting Page" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wRN-52-rPH">
-                                <rect key="frame" x="115" y="130" width="144" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Setting Page" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wRN-52-rPH">
+                                <rect key="frame" x="115" y="44" width="145" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="HWZ-1y-ppo"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Co-Jf-1YK">
-                                <rect key="frame" x="170" y="435" width="34" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Back"/>
-                                <connections>
-                                    <action selector="onBackBtnClicked:" destination="l9F-oS-JpV" eventType="touchUpInside" id="ysO-oj-y0l"/>
-                                </connections>
-                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="server ip" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="LQc-L0-sP6">
+                                <rect key="frame" x="20" y="162" width="335" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Bl0-U1-8CD"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="server port" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="RXQ-Xd-IFS">
+                                <rect key="frame" x="20" y="212" width="335" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="cj8-i8-10O"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="socket ip" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="1CV-O7-vbq">
+                                <rect key="frame" x="20" y="262" width="335" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Sp5-lr-GwP"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="socket port" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="nIE-yC-LzB">
+                                <rect key="frame" x="20" y="312" width="335" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="bIY-BN-8mc"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                            </textField>
+                            <stackView opaque="NO" contentMode="scaleAspectFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="8dq-Q2-TVd">
+                                <rect key="frame" x="0.0" y="432" width="375" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H37-d4-mVA">
+                                        <rect key="frame" x="0.0" y="10" width="187.5" height="30"/>
+                                        <state key="normal" title="Save"/>
+                                        <connections>
+                                            <action selector="onSaveBtnClicked:" destination="l9F-oS-JpV" eventType="touchUpInside" id="ePU-YL-e0E"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Co-Jf-1YK">
+                                        <rect key="frame" x="187.5" y="10" width="187.5" height="30"/>
+                                        <state key="normal" title="Cancel"/>
+                                        <connections>
+                                            <action selector="onCancelBtnClicked:" destination="l9F-oS-JpV" eventType="touchUpInside" id="44O-uq-jkY"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="fAE-K6-1Lx"/>
+                                    <constraint firstItem="6Co-Jf-1YK" firstAttribute="width" secondItem="H37-d4-mVA" secondAttribute="width" id="obE-jj-rob"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="7YS-hz-bHk" firstAttribute="trailing" secondItem="1CV-O7-vbq" secondAttribute="trailing" constant="20" id="0U3-Gg-mEe"/>
+                            <constraint firstItem="7YS-hz-bHk" firstAttribute="trailing" secondItem="wRN-52-rPH" secondAttribute="trailing" constant="115" id="1TS-BV-skF"/>
+                            <constraint firstItem="1CV-O7-vbq" firstAttribute="top" secondItem="RXQ-Xd-IFS" secondAttribute="bottom" constant="20" id="6o6-zm-nih"/>
+                            <constraint firstItem="LQc-L0-sP6" firstAttribute="leading" secondItem="7YS-hz-bHk" secondAttribute="leading" constant="20" id="71Z-ih-5Sa"/>
+                            <constraint firstItem="7YS-hz-bHk" firstAttribute="trailing" secondItem="8dq-Q2-TVd" secondAttribute="trailing" id="9lN-L7-zUn"/>
+                            <constraint firstItem="wRN-52-rPH" firstAttribute="top" secondItem="7YS-hz-bHk" secondAttribute="top" constant="24" id="F9k-JJ-gEq"/>
+                            <constraint firstItem="LQc-L0-sP6" firstAttribute="top" secondItem="wRN-52-rPH" secondAttribute="bottom" constant="88" id="GcV-hY-y9D"/>
+                            <constraint firstItem="8dq-Q2-TVd" firstAttribute="leading" secondItem="7YS-hz-bHk" secondAttribute="leading" id="Tee-Ox-uVt"/>
+                            <constraint firstItem="RXQ-Xd-IFS" firstAttribute="leading" secondItem="7YS-hz-bHk" secondAttribute="leading" constant="20" id="Uo5-Zo-kmO"/>
+                            <constraint firstItem="7YS-hz-bHk" firstAttribute="trailing" secondItem="LQc-L0-sP6" secondAttribute="trailing" constant="20" id="ZlR-lD-3r0"/>
+                            <constraint firstItem="1CV-O7-vbq" firstAttribute="leading" secondItem="7YS-hz-bHk" secondAttribute="leading" constant="20" id="aB1-Zs-T9h"/>
+                            <constraint firstItem="7YS-hz-bHk" firstAttribute="trailing" secondItem="RXQ-Xd-IFS" secondAttribute="trailing" constant="20" id="elf-mB-chx"/>
+                            <constraint firstItem="nIE-yC-LzB" firstAttribute="top" secondItem="1CV-O7-vbq" secondAttribute="bottom" constant="20" id="hsr-0J-ERj"/>
+                            <constraint firstItem="nIE-yC-LzB" firstAttribute="leading" secondItem="7YS-hz-bHk" secondAttribute="leading" constant="20" id="jwa-ah-aTR"/>
+                            <constraint firstItem="wRN-52-rPH" firstAttribute="leading" secondItem="7YS-hz-bHk" secondAttribute="leading" constant="115" id="kbx-Bn-s3R"/>
+                            <constraint firstItem="8dq-Q2-TVd" firstAttribute="top" secondItem="nIE-yC-LzB" secondAttribute="bottom" constant="90" id="pFm-p5-xdc"/>
+                            <constraint firstItem="RXQ-Xd-IFS" firstAttribute="top" secondItem="LQc-L0-sP6" secondAttribute="bottom" constant="20" id="xD2-42-Wco"/>
+                            <constraint firstItem="7YS-hz-bHk" firstAttribute="trailing" secondItem="nIE-yC-LzB" secondAttribute="trailing" constant="20" id="xyM-W1-N13"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="7YS-hz-bHk"/>
                     </view>
+                    <connections>
+                        <outlet property="serverIp" destination="LQc-L0-sP6" id="3Qw-Re-f9h"/>
+                        <outlet property="serverPort" destination="RXQ-Xd-IFS" id="u7W-w9-HPO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hpy-TV-8mj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

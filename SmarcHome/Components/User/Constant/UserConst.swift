@@ -11,4 +11,5 @@ import Foundation
 
 class UserConst {
     static let INDEX_URL = "\(CoreConst.BASE_API_URL)/user"
+    static let UPDATE_URL = "\(CoreConst.BASE_API_URL)/user/update"
 }

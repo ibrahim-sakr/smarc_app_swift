@@ -22,6 +22,7 @@
 		D9330F9020767C2C00B0E75F /* UserConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9330F8F20767C2C00B0E75F /* UserConst.swift */; };
 		D965DAC22085F11500E82405 /* RefreshableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D965DAC12085F11500E82405 /* RefreshableProtocol.swift */; };
 		D965DAC4208761AB00E82405 /* UserCreateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D965DAC3208761AB00E82405 /* UserCreateVC.swift */; };
+		D965DAC620877A5800E82405 /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D965DAC520877A5800E82405 /* SettingsService.swift */; };
 		D99B6857207DF5090048F04A /* SocketListners.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99B6856207DF5090048F04A /* SocketListners.swift */; };
 		D99B6859207DF5BA0048F04A /* LightService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99B6858207DF5BA0048F04A /* LightService.swift */; };
 		D99B685B207DF5FE0048F04A /* LightPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99B685A207DF5FE0048F04A /* LightPoint.swift */; };
@@ -67,6 +68,7 @@
 		D9330F8F20767C2C00B0E75F /* UserConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserConst.swift; sourceTree = "<group>"; };
 		D965DAC12085F11500E82405 /* RefreshableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshableProtocol.swift; sourceTree = "<group>"; };
 		D965DAC3208761AB00E82405 /* UserCreateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCreateVC.swift; sourceTree = "<group>"; };
+		D965DAC520877A5800E82405 /* SettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsService.swift; sourceTree = "<group>"; };
 		D99B6856207DF5090048F04A /* SocketListners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketListners.swift; sourceTree = "<group>"; };
 		D99B6858207DF5BA0048F04A /* LightService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightService.swift; sourceTree = "<group>"; };
 		D99B685A207DF5FE0048F04A /* LightPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightPoint.swift; sourceTree = "<group>"; };
@@ -481,6 +483,7 @@
 		D9AC3FC72071FBFA0097F3D0 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				D965DAC520877A5800E82405 /* SettingsService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -704,6 +707,7 @@
 				D9AC3FCD2071FCD10097F3D0 /* MainVC.swift in Sources */,
 				D99B6857207DF5090048F04A /* SocketListners.swift in Sources */,
 				D9330F842074A60300B0E75F /* AuthConst.swift in Sources */,
+				D965DAC620877A5800E82405 /* SettingsService.swift in Sources */,
 				D9330F8E20767BA600B0E75F /* UserService.swift in Sources */,
 				D91FDAD02079F83C0037C088 /* UserListCell.swift in Sources */,
 				D9243337207F482E006C76C5 /* LightPointRow.swift in Sources */,
