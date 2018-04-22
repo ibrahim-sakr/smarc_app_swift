@@ -84,6 +84,16 @@ class AuthService {
             }
         }
     }
+    
+    func checkHand(_ completed: @escaping CompletionHandler) {
+        Alamofire.request(AuthConst.CHECKHAND_URL, method: .get, encoding: JSONEncoding.default, headers: CoreConst.HEADERS).responseString { (response) in
+            if response.result.error == nil {
+                completed(true)
+            } else {
+                completed(false)
+            }
+        }
+    }
 
     func logout() -> Void {
         self.token = "";

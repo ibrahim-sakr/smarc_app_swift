@@ -20,6 +20,7 @@
 		D9330F8A207679BA00B0E75F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9330F89207679BA00B0E75F /* User.swift */; };
 		D9330F8E20767BA600B0E75F /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9330F8D20767BA600B0E75F /* UserService.swift */; };
 		D9330F9020767C2C00B0E75F /* UserConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9330F8F20767C2C00B0E75F /* UserConst.swift */; };
+		D96109FA208CA57E004F39F9 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96109F9208CA57E004F39F9 /* NetworkManager.swift */; };
 		D965DAC22085F11500E82405 /* RefreshableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D965DAC12085F11500E82405 /* RefreshableProtocol.swift */; };
 		D965DAC4208761AB00E82405 /* UserCreateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D965DAC3208761AB00E82405 /* UserCreateVC.swift */; };
 		D965DAC620877A5800E82405 /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D965DAC520877A5800E82405 /* SettingsService.swift */; };
@@ -66,6 +67,7 @@
 		D9330F89207679BA00B0E75F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D9330F8D20767BA600B0E75F /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		D9330F8F20767C2C00B0E75F /* UserConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserConst.swift; sourceTree = "<group>"; };
+		D96109F9208CA57E004F39F9 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		D965DAC12085F11500E82405 /* RefreshableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshableProtocol.swift; sourceTree = "<group>"; };
 		D965DAC3208761AB00E82405 /* UserCreateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCreateVC.swift; sourceTree = "<group>"; };
 		D965DAC520877A5800E82405 /* SettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsService.swift; sourceTree = "<group>"; };
@@ -540,6 +542,7 @@
 			isa = PBXGroup;
 			children = (
 				D9B8ECBB207A5E7F00ECCEE1 /* SocketIOService.swift */,
+				D96109F9208CA57E004F39F9 /* NetworkManager.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -556,7 +559,6 @@
 				D9AC3F712070B3750097F3D0 /* Frameworks */,
 				D9AC3F722070B3750097F3D0 /* Resources */,
 				EB206187D9E617C4E5619D3B /* [CP] Embed Pods Frameworks */,
-				569948429C80DBE429A297F7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -637,21 +639,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		569948429C80DBE429A297F7 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SmarcHome/Pods-SmarcHome-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		EB206187D9E617C4E5619D3B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -661,6 +648,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-SmarcHome/Pods-SmarcHome-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/Socket.IO-Client-Swift/SocketIO.framework",
 				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -669,6 +657,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SocketIO.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -702,6 +691,7 @@
 				D99B6860207E1E4C0048F04A /* LightConst.swift in Sources */,
 				D9AC3FB82070E0670097F3D0 /* SWRevealViewController.m in Sources */,
 				D91FB2FE207F57EB008D15C1 /* Room.swift in Sources */,
+				D96109FA208CA57E004F39F9 /* NetworkManager.swift in Sources */,
 				D9B8ECBC207A5E7F00ECCEE1 /* SocketIOService.swift in Sources */,
 				D9AC3FD82072011D0097F3D0 /* LoginVC.swift in Sources */,
 				D9AC3FCD2071FCD10097F3D0 /* MainVC.swift in Sources */,

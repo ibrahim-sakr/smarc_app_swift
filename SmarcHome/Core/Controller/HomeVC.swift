@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeVC: UIViewController {
+class HomeVC: UIViewController, UIPopoverPresentationControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,4 +34,5 @@ class HomeVC: UIViewController {
         let nextVC = storyBoard.instantiateViewController(withIdentifier: "MainPage")
         self.present(nextVC, animated: true, completion: nil)
     }
+
 }

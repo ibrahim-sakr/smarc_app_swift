@@ -27,14 +27,6 @@
                                     <action selector="onLightBtnClicked:" destination="jWS-Xu-jz5" eventType="touchUpInside" id="qtW-vp-rAd"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hi4-dv-6Fb">
-                                <rect key="frame" x="146.5" y="314" width="82" height="39"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                                <state key="normal" title="Log Out"/>
-                                <connections>
-                                    <action selector="onLogoutBtmClicked:" destination="jWS-Xu-jz5" eventType="touchUpInside" id="pms-dB-h9h"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uzb-mL-Z9K">
                                 <rect key="frame" x="145" y="173" width="85" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -42,6 +34,14 @@
                                 <state key="normal" title="USERS"/>
                                 <connections>
                                     <action selector="onUsersBtnClicked:" destination="jWS-Xu-jz5" eventType="touchUpInside" id="Bov-V1-Skk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hi4-dv-6Fb">
+                                <rect key="frame" x="146.5" y="314" width="82" height="39"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <state key="normal" title="Log Out"/>
+                                <connections>
+                                    <action selector="onLogoutBtmClicked:" destination="jWS-Xu-jz5" eventType="touchUpInside" id="pms-dB-h9h"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -55,7 +55,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="05f-w1-f0S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="156" y="-84"/>
+            <point key="canvasLocation" x="252" y="-84"/>
         </scene>
         <!--MainVC-->
         <scene sceneID="cAn-0a-ofP">

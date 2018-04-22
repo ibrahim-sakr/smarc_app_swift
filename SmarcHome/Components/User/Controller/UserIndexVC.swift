@@ -13,15 +13,35 @@ class UserIndexVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
     private var selectedUser: User!
 
     @IBOutlet weak var usersTable: UITableView!
-
+    @IBOutlet weak var menuBody: UIView!
+    
     @IBAction func onHomeBtmClicked(_ sender: UIButton) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Core", bundle: nil)
         let nextVC = storyBoard.instantiateViewController(withIdentifier: "HomePage")
         self.present(nextVC, animated: true, completion: nil)
     }
+    
+    @IBAction func onMenuBtnClicked() {
+        UIView.animate(withDuration: 0.7) {
+            self.menuBody.isHidden = !self.menuBody.isHidden;
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    @IBAction func onRefreshBtnClicked() {
+        // refresh users list
+        
+        // hide menu
+        UIView.animate(withDuration: 0.3) {
+            self.menuBody.isHidden = true;
+//            self.view.layoutIfNeeded()
+        }
+    }
 
     @IBAction func onNewBtnClicked(_ sender: Any) {
         performSegue(withIdentifier: "toUserCreate", sender: nil)
+        self.menuBody.isHidden = true;
+//        self.view.layoutIfNeeded()
     }
 
     override func viewDidLoad() {
@@ -83,7 +103,13 @@ class UserIndexVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
             self.performSegue(withIdentifier: "toEditUser", sender: nil)
         }))
         actionSheet.addAction(UIAlertAction(title: "delete", style: UIAlertActionStyle.destructive, handler: { (action) in
-            
+            UserService.instance.delete(id: UserService.instance.users[indexPath.row]._id, completion: { (success) in
+                if success {
+                    print("User Deleted")
+                } else {
+                    print("Failed to delete user")
+                }
+            })
         }))
         actionSheet.addAction(UIAlertAction(title: "cancel", style: UIAlertActionStyle.cancel, handler: nil))
 

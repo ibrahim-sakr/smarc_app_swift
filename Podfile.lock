@@ -1,6 +1,7 @@
 PODS:
   - Alamofire (4.6.0)
   - KeychainSwift (10.0.0)
+  - ReachabilitySwift (4.1.0)
   - Socket.IO-Client-Swift (13.1.0):
     - Starscream (~> 3.0.2)
   - Starscream (3.0.2)
@@ -9,16 +10,27 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - KeychainSwift
+  - ReachabilitySwift
   - Socket.IO-Client-Swift
   - SwiftyJSON
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Alamofire
+    - KeychainSwift
+    - ReachabilitySwift
+    - Socket.IO-Client-Swift
+    - Starscream
+    - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
   KeychainSwift: f9f7910449a0c0fd2cabc889121530dd2c477c33
+  ReachabilitySwift: 6849231cd4e06559f3b9ef4a97a0a0f96d41e09f
   Socket.IO-Client-Swift: b67a96d6a9e5f271bceb93e99779d2cf77c74868
   Starscream: b512c62f6706421221b5ceb2ba01a9f58aca5bea
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
-PODFILE CHECKSUM: 19e4235df51765225cfa0daa794360999f447650
+PODFILE CHECKSUM: 654e07153cbb6b63cd808f4055606fa08a686ae6
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.0

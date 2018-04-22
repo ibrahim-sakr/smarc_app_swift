@@ -50,6 +50,32 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7tq-MS-NvW">
+                                <rect key="frame" x="233" y="64" width="126" height="96"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vKP-SP-la5">
+                                        <rect key="frame" x="36" y="8" width="60" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
+                                        <state key="normal" title="Refresh"/>
+                                        <connections>
+                                            <action selector="onRefreshBtnClicked" destination="vgo-ST-kvM" eventType="touchUpInside" id="mUv-o5-ffa"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gXv-IL-F5n">
+                                        <rect key="frame" x="25" y="46" width="79" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
+                                        <state key="normal" title="New User"/>
+                                        <connections>
+                                            <action selector="onNewBtnClicked:" destination="vgo-ST-kvM" eventType="touchUpInside" id="VwL-J8-THl"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.91372549020000005" green="0.80392156859999997" blue="0.45098039220000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -77,14 +103,15 @@
                                 <rect key="frame" x="276" y="4" width="83" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
-                                <state key="normal" title="New"/>
+                                <state key="normal" title="Menu"/>
                                 <connections>
-                                    <action selector="onNewBtnClicked:" destination="vgo-ST-kvM" eventType="touchUpInside" id="PaL-1e-yIP"/>
+                                    <action selector="onMenuBtnClicked" destination="vgo-ST-kvM" eventType="touchUpInside" id="bWu-pH-zHE"/>
                                 </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="menuBody" destination="7tq-MS-NvW" id="Ofn-fW-WkE"/>
                         <outlet property="usersTable" destination="FSl-mp-HBI" id="YmZ-zM-KtD"/>
                         <segue destination="tbx-Pz-fJR" kind="show" identifier="toUserCreate" id="6EG-P2-djg"/>
                         <segue destination="ELo-pY-Vkq" kind="show" identifier="toEditUser" id="ZGX-TQ-lpi"/>

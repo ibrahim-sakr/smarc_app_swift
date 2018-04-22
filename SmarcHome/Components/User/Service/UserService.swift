@@ -50,9 +50,13 @@ class UserService {
     }
 
     func delete(id: String, completion: @escaping CompletionHandler) {
-        Alamofire.request("\(UserConst.INDEX_URL)/\(id)", method: .delete, encoding: JSONEncoding.default, headers: CoreConst.AUTH_HEADERS)
+        Alamofire.request(UserConst.DELETE_URL + id, method: .delete, encoding: JSONEncoding.default, headers: CoreConst.AUTH_HEADERS)
             .responseJSON{(response) in
                 if response.result.error == nil {
+                    // do this staff from SocketIO
+//                    if let i = self.users.index(where: { $0._id == id }) {
+//                        self.users.remove(at: i)
+//                    }
                     completion(true);
                 } else {
                     completion(false);

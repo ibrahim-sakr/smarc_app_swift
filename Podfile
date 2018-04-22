@@ -12,5 +12,6 @@ target 'SmarcHome' do
   pod 'KeychainSwift'
   pod 'SwiftyJSON'
   pod 'Socket.IO-Client-Swift'
+  pod 'ReachabilitySwift'
 
 end

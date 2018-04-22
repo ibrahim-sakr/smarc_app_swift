@@ -10,12 +10,13 @@ import Foundation
 
 class AuthConst {
     static let STORYBOARD_ID = "Auth";
-    static let FORGET_PASSWORD_PAGE = "ForgetPasswordPage";
-    static let LOGGED_IN_KEY = "loggedin";
-    static let TOKEN_KEY = "token";
-    static let USER_KEY = "user";
-    static let EMAIL_KEY = "email";
-    static let NAME_KEY = "name";
-    static let PASSWORD_KEY = "password";
-    static let LOGIN_URL = "\(CoreConst.BASE_API_URL)/user/auth";
+    static let FORGET_PASSWORD_PAGE = "ForgetPasswordPage"
+    static let LOGGED_IN_KEY = "loggedin"
+    static let TOKEN_KEY = "token"
+    static let USER_KEY = "user"
+    static let EMAIL_KEY = "email"
+    static let NAME_KEY = "name"
+    static let PASSWORD_KEY = "password"
+    static let LOGIN_URL = "\(CoreConst.BASE_API_URL)/user/auth"
+    static let CHECKHAND_URL = "\(CoreConst.BASE_API_URL)/checkhand"
 }
