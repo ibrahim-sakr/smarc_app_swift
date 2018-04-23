@@ -34,7 +34,7 @@ class NetworkManager {
             print("Unable to start notifier")
         }
     }
-    
+
     @objc func networkStatusChanged(_ notification: Notification) {
         // Do something globally here!
         print("Network Status Canged")

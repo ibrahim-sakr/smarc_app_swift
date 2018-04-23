@@ -42,7 +42,7 @@ class MainVC: UIViewController {
     func displayNoInternetConnectionAlert() {
         print("displayNoInternetConnectionAlert => No Internet Connection Alert");
         
-        let alert = UIAlertController(title: "Connection", message: "No Active Internet Connection,\nPlease make sure you are connected hen try again.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Connection", message: "No Active Internet Connection,\nPlease make sure you are connected then try again.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Reload", style: .default, handler: { action in
             self.loadSmarc()
         }))

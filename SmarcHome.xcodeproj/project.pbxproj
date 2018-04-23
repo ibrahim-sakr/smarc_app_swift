@@ -20,7 +20,7 @@
 		D9330F8A207679BA00B0E75F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9330F89207679BA00B0E75F /* User.swift */; };
 		D9330F8E20767BA600B0E75F /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9330F8D20767BA600B0E75F /* UserService.swift */; };
 		D9330F9020767C2C00B0E75F /* UserConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9330F8F20767C2C00B0E75F /* UserConst.swift */; };
-		D96109FA208CA57E004F39F9 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96109F9208CA57E004F39F9 /* NetworkManager.swift */; };
+		D93B1476208CD5AF005B523F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96109F9208CA57E004F39F9 /* NetworkManager.swift */; };
 		D965DAC22085F11500E82405 /* RefreshableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D965DAC12085F11500E82405 /* RefreshableProtocol.swift */; };
 		D965DAC4208761AB00E82405 /* UserCreateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D965DAC3208761AB00E82405 /* UserCreateVC.swift */; };
 		D965DAC620877A5800E82405 /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D965DAC520877A5800E82405 /* SettingsService.swift */; };
@@ -691,7 +691,7 @@
 				D99B6860207E1E4C0048F04A /* LightConst.swift in Sources */,
 				D9AC3FB82070E0670097F3D0 /* SWRevealViewController.m in Sources */,
 				D91FB2FE207F57EB008D15C1 /* Room.swift in Sources */,
-				D96109FA208CA57E004F39F9 /* NetworkManager.swift in Sources */,
+				D93B1476208CD5AF005B523F /* NetworkManager.swift in Sources */,
 				D9B8ECBC207A5E7F00ECCEE1 /* SocketIOService.swift in Sources */,
 				D9AC3FD82072011D0097F3D0 /* LoginVC.swift in Sources */,
 				D9AC3FCD2071FCD10097F3D0 /* MainVC.swift in Sources */,

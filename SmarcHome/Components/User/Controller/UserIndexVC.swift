@@ -11,44 +11,21 @@ import UIKit
 class UserIndexVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     private var selectedUser: User!
+    private let refreshControl = UIRefreshControl()
 
     @IBOutlet weak var usersTable: UITableView!
-    @IBOutlet weak var menuBody: UIView!
     
-    @IBAction func onHomeBtmClicked(_ sender: UIButton) {
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Core", bundle: nil)
-        let nextVC = storyBoard.instantiateViewController(withIdentifier: "HomePage")
-        self.present(nextVC, animated: true, completion: nil)
-    }
-    
-    @IBAction func onMenuBtnClicked() {
-        UIView.animate(withDuration: 0.7) {
-            self.menuBody.isHidden = !self.menuBody.isHidden;
-            self.view.layoutIfNeeded()
-        }
-    }
-    
-    @IBAction func onRefreshBtnClicked() {
-        // refresh users list
-        
-        // hide menu
-        UIView.animate(withDuration: 0.3) {
-            self.menuBody.isHidden = true;
-//            self.view.layoutIfNeeded()
-        }
-    }
-
-    @IBAction func onNewBtnClicked(_ sender: Any) {
-        performSegue(withIdentifier: "toUserCreate", sender: nil)
-        self.menuBody.isHidden = true;
-//        self.view.layoutIfNeeded()
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         self.retrieveUsers()
         self.usersTable.dataSource = self
         self.usersTable.delegate = self
+        
+        // Configure Refresh Control
+        refreshControl.addTarget(self, action: #selector(self.onRefresh(_:)), for: .valueChanged)
+        refreshControl.attributedTitle = NSAttributedString(string: "Refresh Users")
+        
+        usersTable.refreshControl = refreshControl
     }
 
     /**
@@ -96,7 +73,7 @@ class UserIndexVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
      */
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.usersTable.deselectRow(at: indexPath, animated: true)
-        
+
         let actionSheet = UIAlertController(title: UserService.instance.users[indexPath.row].name, message: "What do you need to do", preferredStyle: .actionSheet)
         actionSheet.addAction(UIAlertAction(title: "edit", style: .default, handler: { (action) in
             self.selectedUser = UserService.instance.users[indexPath.row]
@@ -121,6 +98,22 @@ class UserIndexVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
             let vc = segue.destination as? UserEditVC
             vc?.user = self.selectedUser
         }
+    }
+    
+    @IBAction func onHomeBtmClicked(_ sender: UIButton) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Core", bundle: nil)
+        let nextVC = storyBoard.instantiateViewController(withIdentifier: "HomePage")
+        self.present(nextVC, animated: true, completion: nil)
+    }
+
+    @objc func onRefresh(_ sender: Any) {
+        // refresh users list
+        print("refreshing users")
+        self.refreshControl.endRefreshing()
+    }
+    
+    @IBAction func onNewBtnClicked(_ sender: Any) {
+        performSegue(withIdentifier: "toUserCreate", sender: nil)
     }
 
 }

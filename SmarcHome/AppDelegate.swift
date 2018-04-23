@@ -10,8 +10,6 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
-    let network: NetworkManager = NetworkManager.instance
 
     var window: UIWindow?
 
