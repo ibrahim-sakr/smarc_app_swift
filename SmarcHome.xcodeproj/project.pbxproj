@@ -49,6 +49,10 @@
 		D9AC3FDA207202B40097F3D0 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AC3FD9207202B40097F3D0 /* SettingsVC.swift */; };
 		D9AC3FDC207206A30097F3D0 /* ForgetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AC3FDB207206A30097F3D0 /* ForgetPasswordVC.swift */; };
 		D9B8ECBC207A5E7F00ECCEE1 /* SocketIOService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B8ECBB207A5E7F00ECCEE1 /* SocketIOService.swift */; };
+		D9E4F5A420959F7E00D95B24 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E4F5A320959F7E00D95B24 /* Container.swift */; };
+		D9E4F5A62096EF0400D95B24 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E4F5A52096EF0400D95B24 /* RoundButton.swift */; };
+		D9E4F5AA20971FDB00D95B24 /* LaunchScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E4F5A920971FDB00D95B24 /* LaunchScreenVC.swift */; };
+		D9E4F5AD20973A4900D95B24 /* PopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E4F5AC20973A4900D95B24 /* PopAnimator.swift */; };
 		E7A3B727113CBAD1BE303DF0 /* Pods_SmarcHome.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB12225A328A06440FD3F71E /* Pods_SmarcHome.framework */; };
 /* End PBXBuildFile section */
 
@@ -100,6 +104,10 @@
 		D9AC3FD9207202B40097F3D0 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		D9AC3FDB207206A30097F3D0 /* ForgetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordVC.swift; sourceTree = "<group>"; };
 		D9B8ECBB207A5E7F00ECCEE1 /* SocketIOService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIOService.swift; sourceTree = "<group>"; };
+		D9E4F5A320959F7E00D95B24 /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
+		D9E4F5A52096EF0400D95B24 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
+		D9E4F5A920971FDB00D95B24 /* LaunchScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenVC.swift; sourceTree = "<group>"; };
+		D9E4F5AC20973A4900D95B24 /* PopAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopAnimator.swift; sourceTree = "<group>"; };
 		F269234A4324BF7A9D0ACAF4 /* Pods-SmarcHome.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmarcHome.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmarcHome/Pods-SmarcHome.debug.xcconfig"; sourceTree = "<group>"; };
 		FB12225A328A06440FD3F71E /* Pods_SmarcHome.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmarcHome.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -218,6 +226,7 @@
 		D9AC3F892070B3A30097F3D0 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				D9E4F5A220959F6600D95B24 /* IOC */,
 				D99B685C207DF6440048F04A /* Protocol */,
 				D9DDA020207A5C3800FC122B /* Service */,
 				D9AC22D1207A151C001F47C2 /* Utils */,
@@ -390,6 +399,7 @@
 			children = (
 				D9AC3FCC2071FCD10097F3D0 /* MainVC.swift */,
 				D9AC3FCE2071FCF80097F3D0 /* HomeVC.swift */,
+				D9E4F5A920971FDB00D95B24 /* LaunchScreenVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -397,7 +407,6 @@
 		D9AC3FA72070D92F0097F3D0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				D91FDACF2079F83C0037C088 /* UserListCell.swift */,
 				D9AC3FAC2070D96F0097F3D0 /* UserIndexVC.swift */,
 				D9330F872076793100B0E75F /* UserEditVC.swift */,
 				D965DAC3208761AB00E82405 /* UserCreateVC.swift */,
@@ -408,6 +417,7 @@
 		D9AC3FA82070D9360097F3D0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D91FDACF2079F83C0037C088 /* UserListCell.swift */,
 				D9AC3FBF2070F6B50097F3D0 /* User.storyboard */,
 			);
 			path = View;
@@ -501,6 +511,8 @@
 			isa = PBXGroup;
 			children = (
 				D9AC3FB92070E9FB0097F3D0 /* Core.storyboard */,
+				D9E4F5A52096EF0400D95B24 /* RoundButton.swift */,
+				D9E4F5AC20973A4900D95B24 /* PopAnimator.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -545,6 +557,14 @@
 				D96109F9208CA57E004F39F9 /* NetworkManager.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		D9E4F5A220959F6600D95B24 /* IOC */ = {
+			isa = PBXGroup;
+			children = (
+				D9E4F5A320959F7E00D95B24 /* Container.swift */,
+			);
+			path = IOC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -684,9 +704,11 @@
 				D91FB2FB207F5746008D15C1 /* RoomService.swift in Sources */,
 				D91FB301207F596A008D15C1 /* RoomConst.swift in Sources */,
 				D965DAC22085F11500E82405 /* RefreshableProtocol.swift in Sources */,
+				D9E4F5AD20973A4900D95B24 /* PopAnimator.swift in Sources */,
 				D9AC3FBE2070ED3A0097F3D0 /* LightSidebarVC.swift in Sources */,
 				D9AC3FCF2071FCF80097F3D0 /* HomeVC.swift in Sources */,
 				D9330F8A207679BA00B0E75F /* User.swift in Sources */,
+				D9E4F5AA20971FDB00D95B24 /* LaunchScreenVC.swift in Sources */,
 				D91FDACE2078D84D0037C088 /* CoreConst.swift in Sources */,
 				D99B6860207E1E4C0048F04A /* LightConst.swift in Sources */,
 				D9AC3FB82070E0670097F3D0 /* SWRevealViewController.m in Sources */,
@@ -696,9 +718,11 @@
 				D9AC3FD82072011D0097F3D0 /* LoginVC.swift in Sources */,
 				D9AC3FCD2071FCD10097F3D0 /* MainVC.swift in Sources */,
 				D99B6857207DF5090048F04A /* SocketListners.swift in Sources */,
+				D9E4F5A62096EF0400D95B24 /* RoundButton.swift in Sources */,
 				D9330F842074A60300B0E75F /* AuthConst.swift in Sources */,
 				D965DAC620877A5800E82405 /* SettingsService.swift in Sources */,
 				D9330F8E20767BA600B0E75F /* UserService.swift in Sources */,
+				D9E4F5A420959F7E00D95B24 /* Container.swift in Sources */,
 				D91FDAD02079F83C0037C088 /* UserListCell.swift in Sources */,
 				D9243337207F482E006C76C5 /* LightPointRow.swift in Sources */,
 				D9AC22D3207A154E001F47C2 /* UIViewController-Spinner.swift in Sources */,

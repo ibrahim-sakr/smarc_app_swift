@@ -17,6 +17,6 @@ class AuthConst {
     static let EMAIL_KEY = "email"
     static let NAME_KEY = "name"
     static let PASSWORD_KEY = "password"
-    static let LOGIN_URL = "\(CoreConst.BASE_API_URL)/user/auth"
+    static let LOGIN_URL = "\(CoreConst.BASE_API_URL)/auth/token"
     static let CHECKHAND_URL = "\(CoreConst.BASE_API_URL)/checkhand"
 }

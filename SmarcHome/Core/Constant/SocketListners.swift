@@ -9,7 +9,7 @@
 import Foundation
 
 let SocketListners: [String: IntegrateSocketProtocol] = [
-//    "user": "",
+    "user": UserService.instance,
 //    "siren": "",
 //    "security": "",
 //    "scene": "",

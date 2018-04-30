@@ -72,14 +72,14 @@ class LightService: IntegrateSocketProtocol, RefreshableProtocol {
             self.points[i].status = data["status"].boolValue
         }
     }
-    
-    func refresh() {
+
+    func refresh(complete: @escaping CompletionHandler) {
         self.points = []
         self.all { (success) in
             if success {
-                print("Reload success")
+                complete(true)
             } else {
-                print("Failed to Reload")
+                complete(false)
             }
         }
     }

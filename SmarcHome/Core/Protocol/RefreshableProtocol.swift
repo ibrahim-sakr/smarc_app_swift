@@ -9,5 +9,5 @@
 import Foundation
 
 protocol RefreshableProtocol {
-    func refresh()
+    func refresh(complete: @escaping CompletionHandler)
 }

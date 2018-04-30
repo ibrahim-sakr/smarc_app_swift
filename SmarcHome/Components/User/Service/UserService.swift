@@ -10,7 +10,7 @@ import Foundation;
 import Alamofire;
 import SwiftyJSON;
 
-class UserService {
+class UserService: IntegrateSocketProtocol, RefreshableProtocol {
 
     static let instance = UserService();
     
@@ -32,7 +32,7 @@ class UserService {
     }
 
     func update(user: User, completion: @escaping CompletionHandler) {
-        Alamofire.request(UserConst.UPDATE_URL, method: .put, parameters: user.dictionary, encoding: JSONEncoding.default, headers: CoreConst.AUTH_HEADERS)
+        Alamofire.request(UserConst.INDEX_URL, method: .put, parameters: user.dictionary, encoding: JSONEncoding.default, headers: CoreConst.AUTH_HEADERS)
             .responseJSON{(response) in
                 if response.result.error == nil {
                     // do this staff from SocketIO
@@ -50,7 +50,10 @@ class UserService {
     }
 
     func delete(id: String, completion: @escaping CompletionHandler) {
-        Alamofire.request(UserConst.DELETE_URL + id, method: .delete, encoding: JSONEncoding.default, headers: CoreConst.AUTH_HEADERS)
+        let parameters = [
+            "id": id
+        ]
+        Alamofire.request(UserConst.INDEX_URL, method: .delete, parameters: parameters, encoding: JSONEncoding.default, headers: CoreConst.AUTH_HEADERS)
             .responseJSON{(response) in
                 if response.result.error == nil {
                     // do this staff from SocketIO
@@ -64,4 +67,49 @@ class UserService {
         }
     }
 
+    func notify(data: JSON) {
+        switch data["action"].stringValue {
+        case "delete":
+            self.notifyDelete(deletedUser: data);
+        case "update":
+            self.notifyUpdate(updatedUser: data);
+        default:
+            print("No Action Specified")
+        }
+    }
+    
+    func notifyDelete(deletedUser: JSON) {
+        // if the deleted user is the current one
+        if AuthService.instance.user["_id"].stringValue == deletedUser["_id"].stringValue {
+            // LOGOUT now
+            AuthService.instance.logout()
+        } else {
+            // just remove deletedUser from self.users
+            if let i = self.users.index(where: { $0._id == deletedUser["_id"].stringValue }) {
+                self.users.remove(at: i)
+            }
+        }
+    }
+
+    func notifyUpdate(updatedUser: JSON) {
+        var user = User()
+        user._id = updatedUser["_id"].stringValue
+        user.email = updatedUser["email"].stringValue
+        user.name = updatedUser["name"].stringValue
+        if let i = self.users.index(where: { $0._id == user._id }) {
+            self.users[i] = user
+        }
+    }
+    
+    func refresh(complete: @escaping CompletionHandler) {
+        self.users = []
+        self.all { (success) in
+            if success {
+                complete(true)
+            } else {
+                complete(false)
+            }
+        }
+    }
+    
 }

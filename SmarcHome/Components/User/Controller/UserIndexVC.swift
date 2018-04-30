@@ -23,7 +23,7 @@ class UserIndexVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
         
         // Configure Refresh Control
         refreshControl.addTarget(self, action: #selector(self.onRefresh(_:)), for: .valueChanged)
-        refreshControl.attributedTitle = NSAttributedString(string: "Refresh Users")
+        refreshControl.attributedTitle = NSAttributedString(string: "pull to refresh the sers")
         
         usersTable.refreshControl = refreshControl
     }
@@ -99,7 +99,7 @@ class UserIndexVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
             vc?.user = self.selectedUser
         }
     }
-    
+
     @IBAction func onHomeBtmClicked(_ sender: UIButton) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Core", bundle: nil)
         let nextVC = storyBoard.instantiateViewController(withIdentifier: "HomePage")
@@ -107,9 +107,16 @@ class UserIndexVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
     }
 
     @objc func onRefresh(_ sender: Any) {
-        // refresh users list
-        print("refreshing users")
-        self.refreshControl.endRefreshing()
+        UserService.instance.refresh { (success) in
+            if success {
+                self.refreshControl.endRefreshing()
+            } else {
+                print("Failed to load users")
+            }
+        }
+    }
+    
+    @objc func runTimedCode(){
     }
     
     @IBAction func onNewBtnClicked(_ sender: Any) {

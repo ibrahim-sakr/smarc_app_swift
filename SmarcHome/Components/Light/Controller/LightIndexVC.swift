@@ -38,11 +38,11 @@ class LightIndexVC: UIViewController, UpgradableList, UITableViewDelegate, UITab
 
     @IBAction func onRefreshBtnClicked(_ sender: Any) {
         let light: RefreshableProtocol = LightService.instance
-        light.refresh()
+        light.refresh { (success) in }
     }
 
     /**
-     * get all users from User Service and append them into the table
+     * get all points from Light Service and append them into the table
      */
     func retrievePoints() -> Void {
         LightService.instance.all(){ (success) in
