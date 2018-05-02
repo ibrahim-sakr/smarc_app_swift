@@ -32,11 +32,7 @@ class LaunchScreenVC: UIViewController, UIViewControllerTransitioningDelegate {
     func animateToMainPage() {
         UIView.animate(withDuration: 1.0, animations: {
             self.logoLoading.alpha = 0
-            self.logoName.alpha = 0
-
-            self.logoTopConstraint.constant = 60
-            self.logoWidthConstraint.constant = 50
-            self.logoHeightConstraint.constant = 50
+            self.logoTopConstraint.constant = 100
             self.view.layoutIfNeeded()
         }) { (success) in
             if success {

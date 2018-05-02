@@ -113,6 +113,8 @@
                     <connections>
                         <outlet property="serverIp" destination="LQc-L0-sP6" id="3Qw-Re-f9h"/>
                         <outlet property="serverPort" destination="RXQ-Xd-IFS" id="u7W-w9-HPO"/>
+                        <outlet property="socketIp" destination="1CV-O7-vbq" id="HeF-u9-btT"/>
+                        <outlet property="socketPort" destination="nIE-yC-LzB" id="JjU-Av-yfS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hpy-TV-8mj" userLabel="First Responder" sceneMemberID="firstResponder"/>
