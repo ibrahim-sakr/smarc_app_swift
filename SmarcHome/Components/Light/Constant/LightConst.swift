@@ -9,6 +9,11 @@
 import Foundation
 
 class LightConst {
-    static let INDEX_URL = "\(CoreConst.BASE_API_URL)/light"
-    static let TOGGLE_URL = "\(CoreConst.BASE_API_URL)/light/toggle/"
+    static var INDEX_URL: String {
+        return "\(CoreConst.BASE_API_URL)/light"
+    }
+
+    static var TOGGLE_URL: String {
+        return "\(CoreConst.BASE_API_URL)/light/toggle/"
+    }
 }

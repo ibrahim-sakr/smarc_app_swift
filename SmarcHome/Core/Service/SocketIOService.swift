@@ -13,7 +13,7 @@ import SwiftyJSON
 class SocketIOService: NSObject {
     static let instance = SocketIOService()
 
-    private let manager = SocketManager(socketURL: URL(string: CoreConst.BASE_SOCKET_URL)!, config: [.log(true), .compress])
+    private let manager = SocketManager(socketURL: URL(string: CoreConst.BASE_SOCKET_URL)!, config: [.log(CoreConst.SOCKET_LOG), .compress])
     private var socket: SocketIOClient
 
     override init() {
@@ -22,7 +22,6 @@ class SocketIOService: NSObject {
     }
     
     func connect() -> Void {
-        print("connecting to socket io")
         // connect to socket server
         self.socket.connect()
         

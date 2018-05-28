@@ -13,8 +13,14 @@ import Alamofire
 class RoomService {
     
     static let instance = RoomService()
+    
+    var VC: UpgradableList!
 
-    public private(set) var rooms: [Room] = [Room]()
+    public private(set) var rooms: [Room] = [] {
+        didSet {
+            self.VC.updateList()
+        }
+    }
 
     func all(completion: @escaping CompletionHandler) {
         if self.rooms.count > 1 {
@@ -25,8 +31,7 @@ class RoomService {
             .responseJSON { (response) in
                 
                 if response.result.error == nil {
-                    guard let data = response.data else { return };
-                    
+                    guard let data = response.data else { return };                    
                     self.rooms = try! JSONDecoder().decode([Room].self, from: data);
                     completion(true);
                 } else {

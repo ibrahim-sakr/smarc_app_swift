@@ -28,8 +28,7 @@ class LightService: IntegrateSocketProtocol, RefreshableProtocol {
 
     func all(completion: @escaping CompletionHandler) -> Void {
         if self.points.count > 1 {
-            completion(true)
-            return
+            return completion(true)
         }
         Alamofire.request(LightConst.INDEX_URL, method: .get, encoding: JSONEncoding.default, headers: CoreConst.AUTH_HEADERS)
             .responseJSON{(response) in
@@ -42,18 +41,12 @@ class LightService: IntegrateSocketProtocol, RefreshableProtocol {
                 }
         }
     }
-    
+
     func toggle(point: LightPoint, completion: @escaping CompletionHandler) -> Void {
         Alamofire.request(LightConst.TOGGLE_URL + point._id, method: .get, encoding: JSONEncoding.default, headers: CoreConst.AUTH_HEADERS)
             .responseJSON{(response) in
                 if response.result.error == nil {
-                    guard let data = response.data else { return }
-                    let dataJSON = try! JSON(data: data)
-
-                    if let i = self.points.index(where: { $0._id == dataJSON["_id"].stringValue }) {
-                        // update it
-                        self.points[i].status = dataJSON["status"].boolValue
-                    }
+                    // update proccess will continue from SocketIO
                     completion(true)
                 } else {
                     completion(false)

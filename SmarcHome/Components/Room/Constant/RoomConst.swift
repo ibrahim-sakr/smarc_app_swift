@@ -9,5 +9,7 @@
 import Foundation
 
 class RoomConst {
-    static let INDEX_URL = "\(CoreConst.BASE_API_URL)/room"
+    static var INDEX_URL: String {
+        return "\(CoreConst.BASE_API_URL)/room"
+    }
 }

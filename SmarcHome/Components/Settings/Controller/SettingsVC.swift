@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SettingsVC: UIViewController {
+class SettingsVC: UITableViewController {
 
     @IBOutlet weak var serverIp: UITextField!
     @IBOutlet weak var serverPort: UITextField!
@@ -17,6 +17,12 @@ class SettingsVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // set saved setings
+        self.serverIp.text = SettingsService.instance.serverIp
+        self.serverPort.text = SettingsService.instance.serverPort
+        self.socketIp.text = SettingsService.instance.socketIp
+        self.socketPort.text = SettingsService.instance.socketPort
     }
 
     @IBAction func onCancelBtnClicked(_ sender: Any) {
@@ -32,24 +38,28 @@ class SettingsVC: UIViewController {
 
         self.redirect()
     }
-    
+
     func redirect() {
         if AuthService.instance.isLoggedIn {
-            self.backToHomePage()
+//            self.backToHomePage()
+            let load = Load()
+            load.origin = self
+            load.app()
         } else {
             self.backToMainPage()
         }
     }
-    
+
     func backToMainPage() {
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Core", bundle: nil)
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: "MainPage")
+        let storyBoard: UIStoryboard = UIStoryboard(name: CoreConst.STORYBOARD_ID, bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: CoreConst.MAIN_PAGE_ID)
         self.present(newViewController, animated: true, completion: nil)
     }
-    
+
     func backToHomePage() {
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Core", bundle: nil)
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: "HomePage")
+        let storyBoard: UIStoryboard = UIStoryboard(name: CoreConst.STORYBOARD_ID, bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: CoreConst.HOME_PAGE_ID)
         self.present(newViewController, animated: true, completion: nil)
     }
+
 }

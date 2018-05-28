@@ -10,21 +10,19 @@ import UIKit
 
 class UserIndexVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    private var selectedUser: User!
     private let refreshControl = UIRefreshControl()
+    var selectedUser: User!
 
     @IBOutlet weak var usersTable: UITableView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.retrieveUsers()
         self.usersTable.dataSource = self
         self.usersTable.delegate = self
-        
+
         // Configure Refresh Control
         refreshControl.addTarget(self, action: #selector(self.onRefresh(_:)), for: .valueChanged)
-        refreshControl.attributedTitle = NSAttributedString(string: "pull to refresh the sers")
-        
         usersTable.refreshControl = refreshControl
     }
 
@@ -62,37 +60,11 @@ class UserIndexVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
      */
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = usersTable.dequeueReusableCell(withIdentifier: "UserListCell", for: indexPath) as! UserListCell
-        cell.updateView(user: UserService.instance.users[indexPath.row])
+        cell.setup(index: indexPath.row, user: UserService.instance.users[indexPath.row], origin: self)
         
         return cell
     }
     
-    /**
-     * this method just for UI
-     * it deselect the row so it back to the default state
-     */
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.usersTable.deselectRow(at: indexPath, animated: true)
-
-        let actionSheet = UIAlertController(title: UserService.instance.users[indexPath.row].name, message: "What do you need to do", preferredStyle: .actionSheet)
-        actionSheet.addAction(UIAlertAction(title: "edit", style: .default, handler: { (action) in
-            self.selectedUser = UserService.instance.users[indexPath.row]
-            self.performSegue(withIdentifier: "toEditUser", sender: nil)
-        }))
-        actionSheet.addAction(UIAlertAction(title: "delete", style: UIAlertActionStyle.destructive, handler: { (action) in
-            UserService.instance.delete(id: UserService.instance.users[indexPath.row]._id, completion: { (success) in
-                if success {
-                    print("User Deleted")
-                } else {
-                    print("Failed to delete user")
-                }
-            })
-        }))
-        actionSheet.addAction(UIAlertAction(title: "cancel", style: UIAlertActionStyle.cancel, handler: nil))
-
-        self.present(actionSheet, animated: true, completion: nil)
-    }
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is UserEditVC {
             let vc = segue.destination as? UserEditVC
@@ -114,9 +86,6 @@ class UserIndexVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
                 print("Failed to load users")
             }
         }
-    }
-    
-    @objc func runTimedCode(){
     }
     
     @IBAction func onNewBtnClicked(_ sender: Any) {

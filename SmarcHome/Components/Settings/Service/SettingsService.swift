@@ -16,7 +16,11 @@ class SettingsService {
 
     public var serverIp: String {
         get {
-            return defaults.string(forKey: "serverIp") != nil ? defaults.string(forKey: "serverIp")! : ""
+            if let data = defaults.string(forKey: "serverIp") {
+                return data
+            } else {
+                return ""
+            }
         }
         set {
             defaults.set(newValue, forKey: "serverIp")
@@ -25,16 +29,24 @@ class SettingsService {
 
     public var serverPort: String {
         get {
-            return defaults.string(forKey: "serverPort") != nil ? defaults.string(forKey: "serverPort")! : ""
+            if let data = defaults.string(forKey: "serverPort") {
+                return data
+            } else {
+                return ""
+            }
         }
         set {
             defaults.set(newValue, forKey: "serverPort")
         }
     }
-    
+
     public var socketIp: String {
         get {
-            return defaults.string(forKey: "socketIp") != nil ? defaults.string(forKey: "socketIp")! : ""
+            if let data = defaults.string(forKey: "socketIp") {
+                return data
+            } else {
+                return ""
+            }
         }
         set {
             defaults.set(newValue, forKey: "socketIp")
@@ -43,7 +55,11 @@ class SettingsService {
 
     public var socketPort: String {
         get {
-            return defaults.string(forKey: "socketPort") != nil ? defaults.string(forKey: "socketPort")! : ""
+            if let data = defaults.string(forKey: "socketPort") {
+                return data
+            } else {
+                return ""
+            }
         }
         set {
             defaults.set(newValue, forKey: "socketPort")

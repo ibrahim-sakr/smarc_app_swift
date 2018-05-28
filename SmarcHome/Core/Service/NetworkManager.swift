@@ -18,7 +18,7 @@ class NetworkManager {
     init() {
         // Initialise reachability
         self.reachability = Reachability()!
-        
+
         // Register an observer for the network status
         NotificationCenter.default.addObserver(
             self,
@@ -38,19 +38,19 @@ class NetworkManager {
     @objc func networkStatusChanged(_ notification: Notification) {
         // Do something globally here!
         print("Network Status Canged")
-        
+
         // check the new state of network, then take the right Action
     }
-    
+
     static func stopNotifier() -> Void {
         do {
             // Stop the network status notifier
             try (NetworkManager.instance.reachability).startNotifier()
         } catch {
-            print("Error stopping notifier")
+            print("Error When Stopping Notifier")
         }
     }
-    
+
     // Network is reachable
     static func isReachable(completed: @escaping (NetworkManager) -> Void) {
         if (NetworkManager.instance.reachability).connection != .none {

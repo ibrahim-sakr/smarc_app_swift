@@ -13,5 +13,7 @@ target 'SmarcHome' do
   pod 'SwiftyJSON'
   pod 'Socket.IO-Client-Swift'
   pod 'ReachabilitySwift'
+  pod 'XLPagerTabStrip'
+  pod 'SQLite.swift', '~> 0.11.5'
 
 end

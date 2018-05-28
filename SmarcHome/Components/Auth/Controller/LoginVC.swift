@@ -46,23 +46,27 @@ class LoginVC: UIViewController {
 
             if success {
                 // connect to SocketIO
-                SocketIOService.instance.connect()
+//                SocketIOService.instance.connect()
 
                 // redirect to home page
                 let storyBoard: UIStoryboard = UIStoryboard(name: CoreConst.STORYBOARD_ID, bundle: nil)
                 let newViewController = storyBoard.instantiateViewController(withIdentifier: CoreConst.HOME_PAGE_ID)
                 self.present(newViewController, animated: true, completion: nil)
             } else {
-                print("Login Failed");
-                let alert = UIAlertController(title: "Alert", message: "Login Failed", preferredStyle: UIAlertControllerStyle.alert)
-                
-                alert.addAction(UIAlertAction(title: "Retry", style: .default, handler: { action in
-                    print("Retry")
+                self.spinner.isHidden = true;
+                self.spinner.stopAnimating();
+
+                let alert = UIAlertController(title: AuthConst.ALERT_TITLE, message: AuthConst.ALERT_MESSAGE, preferredStyle: UIAlertControllerStyle.alert)
+
+                alert.addAction(UIAlertAction(title: AuthConst.ALERT_ACTION_RETRY, style: .default, handler: { action in
+                    self.onLoginBtnClicked({})
                 }))
-                alert.addAction(UIAlertAction(title: "Exit", style: .destructive, handler: { action in
-                    print("Exit")
+
+                alert.addAction(UIAlertAction(title: AuthConst.ALERT_ACTION_EXIT, style: .destructive, handler: { action in
+                    //to terminate app, do not use exit(0) because this is logged as a crash.
+                    UIControl().sendAction(#selector(NSXPCConnection.suspend), to: UIApplication.shared, for: nil)
                 }))
-                
+
                 self.present(alert, animated: true, completion: nil)
             }
         }

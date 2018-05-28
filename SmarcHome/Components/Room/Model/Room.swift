@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Room: Decodable {
+struct Room: Decodable {
     public private(set) var _id: String!
-    public private(set) var name: String!
+    public var name: String!
 }

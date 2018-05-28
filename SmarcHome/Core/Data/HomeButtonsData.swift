@@ -10,20 +10,44 @@ import Foundation
 
 let HomeButtonsData: [[String: Any]] = [
     [
+        "name": "Scenes",
+        "background": CoreConst.green,
+        "icon": "",
+        "storyBoard": "Scene",
+        "page": "SceneIndex",
+    ],
+    [
+        "name": "Rooms",
+        "background": CoreConst.yellow,
+        "icon": "",
+        "storyBoard": "Room",
+        "page": "RoomIndex",
+    ],
+    [
         "name": "Lights",
-        "background": UIColor.red,
+        "background": CoreConst.orange,
+        "icon": "",
         "storyBoard": "Light",
         "page": "LightIndex",
     ],
     [
+        "name": "Gates & Shutters",
+        "background": CoreConst.gray,
+        "icon": "",
+        "storyBoard": "Shutter",
+        "page": "ShutterIndex",
+    ],
+    [
         "name": "Users",
-        "background": UIColor.green,
+        "background": CoreConst.red,
+        "icon": "",
         "storyBoard": "User",
         "page": "UserIndexList",
     ],
     [
         "name": "Settings",
-        "background": UIColor.blue,
+        "background": CoreConst.green,
+        "icon": "",
         "storyBoard": "Settings",
         "page": "SettingsPage",
     ],

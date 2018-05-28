@@ -10,5 +10,15 @@ import Foundation
 
 
 class UserConst {
-    static let INDEX_URL = "\(CoreConst.BASE_API_URL)/user"
+    static var INDEX_URL: String {
+        return "\(CoreConst.BASE_API_URL)/user"
+    }
+    
+    static let ACTION_DELETE = "delete"
+    static let ACTION_UPDATE = "update"
+    static let ACTION_SHEET_MESSAGE = "What do you need to do"
+    static let ACTION_SHEET_EDIT = "edit"
+    static let ACTION_SHEET_DELETE = "delete"
+    static let ACTION_SHEET_CANCEL = "cancel"
+    static let SEGUE_TO_EDIT_USER = "toEditUser"
 }

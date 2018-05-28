@@ -13,15 +13,13 @@ struct User: Decodable {
     public var email: String!
     public var name: String!
     public var password: String!
-    public private(set) var dictionary: [String: Any] {
-        get {
-            return [
-                "_id": _id!,
-                "email": email!,
-                "name": name!,
-                "password": password != nil ? password : "",
-            ]
-        }
-        set {}
+
+    public var dictionary: [String: Any] {
+        return [
+            "_id": _id!,
+            "email": email!,
+            "name": name!,
+            "password": password != nil ? password : "",
+        ]
     }
 }

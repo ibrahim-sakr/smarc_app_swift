@@ -42,15 +42,10 @@ class AuthService {
                 return self.userTemp
             } else {
                 let value: String = self.keychain.get(AuthConst.USER_KEY)!
-                let json: JSON = JSON(stringLiteral: value)
-                
-                if json.boolValue {
-                    self.userTemp = json
+                let json: JSON = JSON.init(parseJSON: value)
+                self.userTemp = json
 
-                    return json
-                }
-
-                return self.userTemp
+                return json
             }
         }
         set {
@@ -64,7 +59,6 @@ class AuthService {
             AuthConst.EMAIL_KEY: email.lowercased(),
             AuthConst.PASSWORD_KEY: password
         ];
-
         Alamofire.request(AuthConst.LOGIN_URL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: CoreConst.HEADERS).responseJSON{(response) in
             if response.result.error == nil {
                 do {
@@ -84,7 +78,7 @@ class AuthService {
             }
         }
     }
-    
+
     func checkHand(_ completed: @escaping CompletionHandler) {
         Alamofire.request(AuthConst.CHECKHAND_URL, method: .get, encoding: JSONEncoding.default, headers: CoreConst.HEADERS).responseString { (response) in
             if response.result.error == nil {

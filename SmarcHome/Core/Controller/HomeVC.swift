@@ -8,39 +8,21 @@
 
 import UIKit
 
-class HomeVC: UIViewController, UIPopoverPresentationControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
+class HomeVC: UIViewController, UIPopoverPresentationControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    private let homeButtons: [String] = ["lights", "users", "options", "cams", "Access Control"];
-
     @IBOutlet weak var homeButtonsCV: UICollectionView!
-    @IBOutlet weak var testCommonView: SidebarUserSectionV!
-    
+    @IBOutlet weak var menuBtn: UIButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Home VC Loaded");
-        
+
+        self.view.backgroundColor = CoreConst.gray
+
         self.homeButtonsCV.delegate = self
         self.homeButtonsCV.dataSource = self
-    }
-    
-    @IBAction func onLightBtnClicked(_ sender: Any) {
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Light", bundle: nil)
-        let nextVC = storyBoard.instantiateViewController(withIdentifier: "LightIndex")
-        self.present(nextVC, animated: true, completion: nil)
-    }
 
-    @IBAction func onUsersBtnClicked(_ sender: Any) {
-        let storyBoard: UIStoryboard = UIStoryboard(name: "User", bundle: nil)
-        let nextVC = storyBoard.instantiateViewController(withIdentifier: "UserIndexList")
-        self.present(nextVC, animated: true, completion: nil)
-    }
-
-    @IBAction func onLogoutBtmClicked(_ sender: Any) {
-        AuthService.instance.logout();
-
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Core", bundle: nil)
-        let nextVC = storyBoard.instantiateViewController(withIdentifier: "MainPage")
-        self.present(nextVC, animated: true, completion: nil)
+        // register open sidebar event to the button
+        self.menuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
     }
 
     /**
@@ -58,7 +40,7 @@ class HomeVC: UIViewController, UIPopoverPresentationControllerDelegate, UIColle
 
     // Display a Cell after init it
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = self.homeButtonsCV.dequeueReusableCell(withReuseIdentifier: "homeButton", for: indexPath) as! HomeButtonCell
+        let cell = self.homeButtonsCV.dequeueReusableCell(withReuseIdentifier: CoreConst.HOME_BUTTONS_CELL_ID, for: indexPath) as! HomeButtonCell
         cell.updateView(name: HomeButtonsData[indexPath.row]["name"] as! String, background: HomeButtonsData[indexPath.row]["background"] as! UIColor)
         return cell
     }
@@ -68,5 +50,9 @@ class HomeVC: UIViewController, UIPopoverPresentationControllerDelegate, UIColle
         let storyBoard: UIStoryboard = UIStoryboard(name: HomeButtonsData[indexPath.row]["storyBoard"] as! String, bundle: nil)
         let nextVC = storyBoard.instantiateViewController(withIdentifier: HomeButtonsData[indexPath.row]["page"] as! String)
         self.present(nextVC, animated: true, completion: nil)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: self.view.frame.width / 2, height: self.view.frame.width / 2)
     }
 }

@@ -9,11 +9,10 @@
 import Foundation
 
 struct LightPoint: Decodable {
-    public private(set) var _id: String;
-    public private(set) var name: String;
-    public private(set) var nodeIp: String;
-    public private(set) var nodeName: String;
-    public private(set) var nodeStatus: Bool;
-    public private(set) var roomId: String;
-    public var status: Bool;
+    public var _id: String
+    public var name: String
+    public var nodeIp: String
+    public var nodeStatus: Bool
+    public var roomId: String
+    public var status: Bool
 }

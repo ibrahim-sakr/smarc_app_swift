@@ -21,7 +21,6 @@ class LaunchScreenVC: UIViewController, UIViewControllerTransitioningDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Launch Screen VC Loaded");
         if AuthService.instance.isLoggedIn {
             animateToHomePage()
         } else {
@@ -32,12 +31,14 @@ class LaunchScreenVC: UIViewController, UIViewControllerTransitioningDelegate {
     func animateToMainPage() {
         UIView.animate(withDuration: 1.0, animations: {
             self.logoLoading.alpha = 0
+            
+            // this number needs to calculate dynamicly
             self.logoTopConstraint.constant = 100
             self.view.layoutIfNeeded()
         }) { (success) in
             if success {
-                let storyBoard: UIStoryboard = UIStoryboard(name: "Core", bundle: nil)
-                let nextVC = storyBoard.instantiateViewController(withIdentifier: "MainPage")
+                let storyBoard: UIStoryboard = UIStoryboard(name: CoreConst.STORYBOARD_ID, bundle: nil)
+                let nextVC = storyBoard.instantiateViewController(withIdentifier: CoreConst.MAIN_PAGE_ID)
                 nextVC.transitioningDelegate = self
                 self.present(nextVC, animated: true, completion: nil)
             }
@@ -49,14 +50,14 @@ class LaunchScreenVC: UIViewController, UIViewControllerTransitioningDelegate {
             self.logoLoading.alpha = 0
             self.logoName.alpha = 0
 
+            // these numbers need to calculate dynamicly
             self.logoTopConstraint.constant = 14
             self.logoWidthConstraint.constant = 30
             self.logoHeightConstraint.constant = 30
             self.view.layoutIfNeeded()
         }) { (success) in
             if success {
-                let storyBoard: UIStoryboard = UIStoryboard(name: "Core", bundle: nil)
-                let nextVC = storyBoard.instantiateViewController(withIdentifier: "HomePage")
+                let nextVC = UIStoryboard(name: CoreConst.STORYBOARD_ID, bundle: nil).instantiateViewController(withIdentifier: CoreConst.HOME_PAGE_ID)
                 nextVC.transitioningDelegate = self
                 self.present(nextVC, animated: true, completion: nil)
             }

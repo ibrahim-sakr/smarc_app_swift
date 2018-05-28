@@ -27,7 +27,6 @@ class UserService: IntegrateSocketProtocol, RefreshableProtocol {
             } else {
                 completion(false);
             }
-
         }
     }
 
@@ -35,13 +34,6 @@ class UserService: IntegrateSocketProtocol, RefreshableProtocol {
         Alamofire.request(UserConst.INDEX_URL, method: .put, parameters: user.dictionary, encoding: JSONEncoding.default, headers: CoreConst.AUTH_HEADERS)
             .responseJSON{(response) in
                 if response.result.error == nil {
-                    // do this staff from SocketIO
-//                    guard let data = response.data else { return };
-//                    let user = try! JSONDecoder().decode(User.self, from: data);
-//                    if let i = self.users.index(where: { $0._id == user._id }) {
-//                        self.users[i] = user
-//                    }
-
                     completion(true);
                 } else {
                     completion(false);
@@ -56,10 +48,6 @@ class UserService: IntegrateSocketProtocol, RefreshableProtocol {
         Alamofire.request(UserConst.INDEX_URL, method: .delete, parameters: parameters, encoding: JSONEncoding.default, headers: CoreConst.AUTH_HEADERS)
             .responseJSON{(response) in
                 if response.result.error == nil {
-                    // do this staff from SocketIO
-//                    if let i = self.users.index(where: { $0._id == id }) {
-//                        self.users.remove(at: i)
-//                    }
                     completion(true);
                 } else {
                     completion(false);
@@ -69,9 +57,9 @@ class UserService: IntegrateSocketProtocol, RefreshableProtocol {
 
     func notify(data: JSON) {
         switch data["action"].stringValue {
-        case "delete":
+        case UserConst.ACTION_DELETE:
             self.notifyDelete(deletedUser: data);
-        case "update":
+        case UserConst.ACTION_UPDATE:
             self.notifyUpdate(updatedUser: data);
         default:
             print("No Action Specified")
@@ -83,6 +71,7 @@ class UserService: IntegrateSocketProtocol, RefreshableProtocol {
         if AuthService.instance.user["_id"].stringValue == deletedUser["_id"].stringValue {
             // LOGOUT now
             AuthService.instance.logout()
+            // redirect to Login Page
         } else {
             // just remove deletedUser from self.users
             if let i = self.users.index(where: { $0._id == deletedUser["_id"].stringValue }) {

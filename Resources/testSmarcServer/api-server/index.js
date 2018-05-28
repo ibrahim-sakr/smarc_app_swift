@@ -20,7 +20,7 @@ function verifyToken(req, res, next) {
     let token = req.headers.token || req.query.token || null;
     jwt.verify(token, sharedSecret, function(err, decoded) {
         if (err) {
-            return res.json({
+            return res.status(401).json({
                 error: err.message,
             }).end();
         }
@@ -212,7 +212,9 @@ MongoClient.connect(url, function(err, client) {
                 if (err) {
                     throw err;
                 }
-                return res.json(result).end();
+                setTimeout(function(){
+                    return res.json(result).end();
+                }, 2000);
             });
         })
     });
@@ -249,6 +251,20 @@ MongoClient.connect(url, function(err, client) {
             }
             return res.json(result).end();
         });
+    });
+
+    // run Scene with auth
+    app.post('/scene/run', verifyToken, (req, res) => {
+        if (!req.user) {
+            return res.status(401).json({error: "unauthorized"}).end();
+        }
+
+        console.log("==========================");
+        console.log("Scene Body");
+        console.dir(req.body, { depth: 20 });
+        console.log("==========================");
+
+        return res.json({"success": true}).end();
     });
 
 });

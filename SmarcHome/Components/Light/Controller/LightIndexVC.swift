@@ -13,15 +13,18 @@ class LightIndexVC: UIViewController, UpgradableList, UITableViewDelegate, UITab
     @IBOutlet weak var lightMenuBtn: UIButton!
     @IBOutlet weak var pointsTable: UITableView!
     @IBOutlet weak var head: UILabel!
-
+    @IBOutlet weak var headBG: UIView!
+    
     public var roomId: String = "";
     public var headTitle: String = "List Of All Points";
     private var points: [LightPoint] = [];
+    private let refreshControl = UIRefreshControl()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // set header title
         self.head.text = self.headTitle;
+        self.headBG.backgroundColor = CoreConst.orange
 
         // register open sidebar event to the button
         self.lightMenuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
@@ -34,11 +37,10 @@ class LightIndexVC: UIViewController, UpgradableList, UITableViewDelegate, UITab
 
         LightService.instance.VC = self
         self.retrievePoints()
-    }
 
-    @IBAction func onRefreshBtnClicked(_ sender: Any) {
-        let light: RefreshableProtocol = LightService.instance
-        light.refresh { (success) in }
+        // Configure Refresh Control
+        refreshControl.addTarget(self, action: #selector(self.onRefresh(_:)), for: .valueChanged)
+        pointsTable.refreshControl = refreshControl
     }
 
     /**
@@ -88,7 +90,7 @@ class LightIndexVC: UIViewController, UpgradableList, UITableViewDelegate, UITab
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = self.pointsTable.dequeueReusableCell(withIdentifier: "PointCell", for: indexPath) as? LightPointRow {
-            cell.updateView(point: self.points[indexPath.row])
+            cell.updateView(index: indexPath.row, point: self.points[indexPath.row])
             return cell
         }
         return LightPointRow()
@@ -96,6 +98,54 @@ class LightIndexVC: UIViewController, UpgradableList, UITableViewDelegate, UITab
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
+    }
+
+    @objc func onRefresh(_ sender: Any) {
+        LightService.instance.refresh { (success) in
+            if success {
+                self.refreshControl.endRefreshing()
+            } else {
+                print("Failed to load Lights")
+            }
+        }
+    }
+
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let closeAction = UIContextualAction(
+            style: .normal,
+            title: "ON",
+            handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+                if !LightService.instance.points[indexPath.row].status {
+                    // send toggle request
+                    let cell = tableView.cellForRow(at: indexPath) as! LightPointRow
+                    cell.switchToggle()
+                }
+
+                return success(true)
+            }
+        )
+        closeAction.backgroundColor = CoreConst.red
+
+        return UISwipeActionsConfiguration(actions: [closeAction])
+    }
+
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let closeAction = UIContextualAction(
+            style: .normal,
+            title:  "OFF",
+            handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+                if LightService.instance.points[indexPath.row].status {
+                    // send toggle request
+                    let cell = tableView.cellForRow(at: indexPath) as! LightPointRow
+                    cell.switchToggle()
+                }
+                
+                return success(true)
+            }
+        )
+        closeAction.backgroundColor = CoreConst.gray
+        
+        return UISwipeActionsConfiguration(actions: [closeAction])
     }
 
 }
